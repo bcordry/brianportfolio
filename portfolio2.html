@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for responsive design and character encoding -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Brian Cordry</title>
+
+  <!-- Google Fonts - same as other pages -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+
+  <!-- CSS files - shared styles first, then page-specific -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/portfolio2.css">
+</head>
+
+<body>
+  <!-- Snow effect container (matches all pages) -->
+  <div class="snow-container" id="snow-container"></div>
+
+  <!-- Sticky header navigation (copied from work-journey.html) -->
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Brian Cordry</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li><a href="work-journey.html" class="nav-link">Work Journey</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content container -->
+  <main class="main-content">
+    <!-- Page header -->
+    <section class="page-header">
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-subtitle">Websites, Videos, and Projects I've Led</p>
+    </section>
+
+    <!-- Filter bar for project types -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Websites</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+      <button class="filter-btn" data-filter="lead">Leadership</button>
+    </div>
+
+    <!-- Portfolio grid -->
+    <section class="portfolio-grid">
+      <!-- EGL Website -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=EGL" alt="EGL Website Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">EGL Website</h3>
+          <p class="card-desc">A redesign and frontend development project for EGL's competitive gaming platform.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Winterfox Website Redesign -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Winterfox" alt="Winterfox Website Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Winterfox Website Redesign (2015)</h3>
+          <p class="card-desc">A full redesign of an esports organization website. I collaborated on visual design and layout, helping the brand look cleaner and more professional.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Emerald Imperium Website -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Emerald+Imperium" alt="Emerald Imperium Website Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Emerald Imperium Website (2025)</h3>
+          <p class="card-desc">A website created from scratch in HTML and JS for the Pokemon ROM Hack "Emerald Imperium".</p>
+          <a href="https://emeraldimperium.info/" class="card-link" target="_blank">Visit Site</a>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Terra Emerald Website -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Terra+Emerald" alt="Terra Emerald Website Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Terra Emerald Website (2025)</h3>
+          <p class="card-desc">A detailed website created for the Pokemon ROM Hack "Terra Emerald". Many advanced features.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Jewel Leblanc Portfolio -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=LeBlanc" alt="Jewel Leblanc Portfolio Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Jewel Leblanc Portfolio (2025)</h3>
+          <p class="card-desc">LeBlanc Solutions. A professional website for a local businessperson who does Notary & Private Bartending work.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Spire Records -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Spire+Records" alt="Spire Records Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Spire Records</h3>
+          <p class="card-desc">Record-keeping website for Slay The Spire.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Local Restaurant -->
+      <div class="portfolio-card" data-type="web">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Restaurant" alt="Local Restaurant Screenshot" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Local Restaurant</h3>
+          <p class="card-desc">Details to come.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Winterfox Pride & Aspire (Video) -->
+      <div class="portfolio-card" data-type="video">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Winterfox+Pride" alt="Winterfox Pride Video" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Winterfox Pride & Aspire (2016-2018)</h3>
+          <p class="card-desc">Online documentary series (video links coming soon).</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+      <!-- Example Leadership Project -->
+      <div class="portfolio-card" data-type="lead">
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/400x250?text=Leadership" alt="Leadership Project" class="card-img">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Hackathon Team Lead</h3>
+          <p class="card-desc">Led a team to victory in a 48-hour hackathon with an AI-powered app.</p>
+          <button class="view-details-btn">View Details</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for project details -->
+  <div id="portfolio-modal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Project Title</h2>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Details will be injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JS for snow and portfolio interactivity -->
+  <script src="js/portfolio2.js"></script>
+</body>
+</html>

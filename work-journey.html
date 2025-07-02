@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for responsive design and character encoding -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Journey - Brian Cordry Portfolio</title>
+
+  <!-- Google Fonts - same as index page -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+
+  <!-- CSS files - shared styles first, then page-specific -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/work-journey.css">
+</head>
+
+<body>
+  <!-- Snow container - reused from index page for consistent theme -->
+  <div class="snow-container" id="snow-container"></div>
+
+  <!-- Sticky header navigation -->
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <!-- Logo/name on the left -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Brian Cordry</a>
+      </div>
+
+      <!-- Navigation links on the right -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="work-journey.html" class="nav-link active">Work Journey</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content container -->
+  <main class="main-content">
+
+    <!-- Interactive map container -->
+    <section class="map-container">
+      <!-- Page title section -->
+        <div class="page-header">
+          <h1 class="page-title">My Work Journey</h1>
+          <p class="page-subtitle">Explore the places where I've built my career</p>
+        </div>
+      <!-- SVG map will go here -->
+      <svg id="work-map" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+        <!-- Map definitions for gradients, filters, etc. -->
+        <defs>
+          <!-- Gradient for map background -->
+          <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f8f9fa" stop-opacity="0.1"/>
+            <stop offset="50%" stop-color="#e6e6fa" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#d1c4e9" stop-opacity="0.1"/>
+          </linearGradient>
+
+          <!-- Glow filter for pins and routes -->
+          <filter id="purpleGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <!-- Hover glow filter -->
+          <filter id="hoverGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+          <linearGradient id="topFadeMask" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="white" stop-opacity="0"/>
+            <stop offset="15%" stop-color="white" stop-opacity="0.7"/>
+            <stop offset="30%" stop-color="white" stop-opacity="1"/>
+            <stop offset="100%" stop-color="white" stop-opacity="1"/>
+          </linearGradient>
+          <mask id="fadeTopMask">
+            <rect x="0" y="0" width="1200" height="800" fill="url(#topFadeMask)"/>
+          </mask>
+        </defs>
+
+        <!-- Map background -->
+          <rect width="100%" height="100%" fill="url(#mapGradient)"/>
+
+        <!-- Static PNG map background image -->
+          <image href="assets/images/maps/usa-and-carrib-map-outlines.png" 
+                x="0" y="-170"
+                width="1200" height="800"
+                preserveAspectRatio="xMidYMid meet"
+                opacity="0.3"
+                class="background-map"
+                mask="url(#fadeTopMask)"/>
+
+        <!-- US States (simplified outlines) -->
+        <!-- California coordinate starts in top left corner and goes clockwise -->
+        <path id="california" class="state clickable-state" 
+              d="M92,128 L164,148 L145,212 L220,330 L226,352 L210,369 L214,379 L210,382 L161,375 L157,354 L118,318 L107,312 L100,277 L92,266 L92,235 L80,196 L78,170 Z" 
+              data-location="los-angeles"
+              data-city="Los Angeles"
+              data-state="California"/>
+
+        <!-- Nevada coordinate starts in top left corner and goes clockwise-->
+        <path id="nevada" class="state clickable-state"
+              d="M164,148 L264,171 L238,308 L227,305 L220,330 L145,212 Z"
+              data-location="las-vegas"
+              data-city="Las Vegas"
+              data-state="Nevada"/>
+
+        <!-- Colorado coordinate starts in top left corner and goes clockwise-->
+        <path id="colorado" class="state clickable-state"
+              d="M325,112 L444,128 L436,220 L310,206 Z"
+              data-location="denver"
+              data-city="Denver"
+              data-state="Colorado"/>
+
+        <!-- Illinois coordinate starts in top left corner and goes clockwise-->
+        <path id="illinois" class="state clickable-state"
+              d="M670,190 L719,187 L717,191 L724,205 L729,260 L726,265 L730,274 L722,290 L721,302 L716,303 L716,311 L708,309 L704,314 
+              L695,310 L694,298 L678,288 L682,276 L682,276 L675,275 L671,266 L661,257 L656,241 L666,220 L662,216 L674,210 L678,200 Z"
+              data-location="chicago"
+              data-city="Chicago"
+              data-state="Illinois"/>
+
+        <!-- Antigua (Caribbean) coordinate starts in top left corner and goes clockwise-->
+        <path id="antigua" class="state clickable-state"
+              d="M990,595 L1005,585 L1020,595 L1005,605 Z"
+              data-location="jolly-harbour"
+              data-city="Jolly Harbour"
+              data-state="Antigua"/>
+
+        <!-- Connection routes between locations -->
+        <g class="routes">
+          <!-- LA to Chicago -->
+          <line x1="158" y1="343" x2="715" y2="205" class="route-line" stroke="#7c5fd3" stroke-width="3"/>
+          <!-- Chicago to Vegas -->
+          <line x1="715" y1="205" x2="215" y2="290" class="route-line" stroke="#7c5fd3" stroke-width="3"/>
+          <!-- Vegas to Antigua -->
+          <line x1="215" y1="290" x2="1005" y2="600" class="route-line" stroke="#7c5fd3" stroke-width="3"/>
+          <!-- Antigua to Denver -->
+          <line x1="1005" y1="600" x2="400" y2="155" class="route-line" stroke="#7c5fd3" stroke-width="3"/>
+        </g>
+
+        <!-- Location pins -->
+        <g class="pins">
+          <!-- Los Angeles pin -->
+          <circle cx="158" cy="343" r="8" class="location-pin" data-location="los-angeles" fill="#7c5fd3"/>
+          <text x="158" y="368" class="pin-label" text-anchor="middle">Los Angeles</text>
+
+          <!-- Las Vegas pin -->
+          <circle cx="215" cy="290" r="8" class="location-pin" data-location="las-vegas" fill="#7c5fd3"/>
+          <text x="215" y="315" class="pin-label" text-anchor="middle">Las Vegas</text>
+
+          <!-- Denver pin -->
+          <circle cx="400" cy="155" r="8" class="location-pin" data-location="denver" fill="#7c5fd3"/>
+          <text x="400" y="180" class="pin-label" text-anchor="middle">Denver</text>
+
+          <!-- Chicago pin -->
+          <circle cx="715" cy="205" r="8" class="location-pin" data-location="chicago" fill="#7c5fd3"/>
+          <text x="715" y="230" class="pin-label" text-anchor="middle">Chicago</text>
+
+          <!-- Jolly Harbour pin -->
+          <circle cx="1005" cy="600" r="8" class="location-pin" data-location="jolly-harbour" fill="#7c5fd3"/>
+          <text x="1005" y="625" class="pin-label" text-anchor="middle">Jolly Harbour</text>
+        </g>
+      </svg>
+    </section>
+  </main>
+
+  <!-- Modal for location details -->
+  <div id="location-modal" class="modal">
+    <!-- Modal backdrop for clicking outside to close -->
+    <div class="modal-backdrop"></div>
+
+    <!-- Modal content container -->
+    <div class="modal-content">
+      <!-- Close button -->
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+
+      <!-- Modal header -->
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Location Name</h2>
+        <p class="modal-subtitle" id="modal-subtitle">State/Country</p>
+      </div>
+
+      <!-- Modal body with slideshow and text -->
+      <div class="modal-body">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+          <div class="slideshow-wrapper">
+            <!-- Slides will be dynamically inserted here -->
+ 
+          </div>
+
+          <!-- Slideshow navigation -->
+          <button class="slide-nav prev" aria-label="Previous image">&lt;</button>
+          <button class="slide-nav next" aria-label="Next image">&gt;</button>
+
+          <!-- Slide indicators -->
+          <div class="slide-indicators">
+            <button class="indicator active" data-slide="0"></button>
+            <button class="indicator" data-slide="1"></button>
+            <button class="indicator" data-slide="2"></button>
+          </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="location-text">
+          <h3 class="location-role" id="modal-role">Job Title</h3>
+          <p class="location-description" id="modal-description">
+            This is placeholder text for the job description. You can replace this with details about your role, responsibilities, achievements, and experiences in this location.
+          </p>
+          <div class="location-details">
+            <span class="detail-item" id="modal-duration">Duration: 2020-2022</span>
+            <span class="detail-item" id="modal-company">Company: Example Corp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript files -->
+  <script src="js/work-journey.js"></script>
+</body>
+</html>

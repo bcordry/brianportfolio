@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for responsive design and character encoding -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Brian Cordry</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+
+  <!-- CSS files - shared styles first, then page-specific -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+  <!-- Snow effect container -->
+  <div class="snow-container" id="snow-container"></div>
+
+  <!-- Sticky header navigation -->
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <!-- Logo/name on the left -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Brian Cordry</a>
+      </div>
+      <!-- Navigation links on the right -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li><a href="work-journey.html" class="nav-link">Work Journey</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Parallax background -->
+  <div class="parallax-bg" id="parallax-bg"></div>
+
+  <!-- Main grid container, fills viewport below header -->
+  <main class="portfolio-main">
+    <div class="portfolio-grid">
+      <!-- Row 1 -->
+      <div class="portfolio-filter-card">
+        <!-- Filter pills as a grid item -->
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="web">Websites</button>
+        <button class="filter-pill" data-filter="video">Videos</button>
+        <button class="filter-pill" data-filter="lead">Leadership</button>
+      </div>
+      <div class="portfolio-card" data-type="web" data-index="0">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=EGL" alt="EGL Website" class="card-img">
+          <div class="card-info"><h3 class="card-title">EGL Website</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-card" data-type="web" data-index="1">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Winterfox" alt="Winterfox Website" class="card-img">
+          <div class="card-info"><h3 class="card-title">Winterfox Redesign</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-blank"></div>
+      <div class="portfolio-card" data-type="web" data-index="2">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Emerald+Imperium" alt="Emerald Imperium Website" class="card-img">
+          <div class="card-info"><h3 class="card-title">Emerald Imperium</h3></div>
+        </div>
+      </div>
+      <!-- Row 2 -->
+      <div class="portfolio-card" data-type="web" data-index="3">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Terra+Emerald" alt="Terra Emerald Website" class="card-img">
+          <div class="card-info"><h3 class="card-title">Terra Emerald</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-card" data-type="web" data-index="4">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=LeBlanc" alt="Jewel Leblanc Portfolio" class="card-img">
+          <div class="card-info"><h3 class="card-title">LeBlanc Solutions</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-blank"></div>
+      <div class="portfolio-card" data-type="web" data-index="5">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Spire+Records" alt="Spire Records" class="card-img">
+          <div class="card-info"><h3 class="card-title">Spire Records</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-card" data-type="web" data-index="6">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Restaurant" alt="Local Restaurant" class="card-img">
+          <div class="card-info"><h3 class="card-title">Local Restaurant</h3></div>
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div class="portfolio-card" data-type="video" data-index="7">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Winterfox+Pride" alt="Winterfox Pride Video" class="card-img">
+          <div class="card-info"><h3 class="card-title">Winterfox Pride</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-blank"></div>
+      <div class="portfolio-card" data-type="video" data-index="8">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Winterfox+Aspire" alt="Winterfox Aspire Video" class="card-img">
+          <div class="card-info"><h3 class="card-title">Winterfox Aspire</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-card" data-type="lead" data-index="9">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Hackathon+Lead" alt="Hackathon Leadership" class="card-img">
+          <div class="card-info"><h3 class="card-title">Hackathon Lead</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-blank"></div>
+      <!-- Row 4 -->
+      <div class="portfolio-card" data-type="lead" data-index="10">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Team+Lead" alt="Team Leadership" class="card-img">
+          <div class="card-info"><h3 class="card-title">Team Leadership</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-card" data-type="lead" data-index="11">
+        <div class="card-inner">
+          <img src="https://placehold.co/400x400?text=Project+Lead" alt="Project Leadership" class="card-img">
+          <div class="card-info"><h3 class="card-title">Project Lead</h3></div>
+        </div>
+      </div>
+      <div class="portfolio-blank"></div>
+      <div class="portfolio-blank"></div>
+      <div class="portfolio-blank"></div>
+    </div>
+  </main>
+
+  <!-- Modal for project details -->
+  <div id="portfolio-modal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Project Title</h2>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Details will be injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for snow, parallax, filtering, and modal -->
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1320, initial-scale=1.0">
+  <title>Brian Cordry Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div class="snow-container" id="snow-container"></div>
+  <div class="fractured-bg">
+    <svg id="fractured-svg" viewBox="0 0 1320 840" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f8f9fa" stop-opacity="0.9" />
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#e6e6fa" stop-opacity="0.8" />
+        </linearGradient>
+        <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e6e6fa" stop-opacity="0.85" />
+          <stop offset="50%" stop-color="#f3e8ff" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#d1c4e9" stop-opacity="0.9" />
+        </linearGradient>
+        <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#ede7f6" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#bfaaff" stop-opacity="0.85" />
+        </linearGradient>
+        <linearGradient id="grad4" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f3e8ff" stop-opacity="0.9" />
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#e6e6fa" stop-opacity="0.8" />
+        </linearGradient>
+        <linearGradient id="grad5" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e6e6fa" stop-opacity="0.85" />
+          <stop offset="50%" stop-color="#f8f9fa" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#bfaaff" stop-opacity="0.9" />
+        </linearGradient>
+        <linearGradient id="grad6" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f8f9fa" stop-opacity="0.95" />
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.8" />
+          <stop offset="100%" stop-color="#bfaaff" stop-opacity="0.9" />
+        </linearGradient>
+        <filter id="glass-refraction" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
+          <feOffset in="blur" dx="1" dy="1" result="offset"/>
+          <feFlood flood-color="#ffffff" flood-opacity="0.3"/>
+          <feComposite in2="offset" operator="over"/>
+          <feComposite in2="SourceGraphic" operator="over"/>
+        </filter>
+        <filter id="shimmer" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/> 
+          </feMerge>
+        </filter>
+        <clipPath id="portrait-clip">
+          <polygon points="600,180 960,480 360,540" />
+        </clipPath>
+      </defs>
+
+      <!-- Clickable polygons -->
+      <polygon id="poly1" points="0,0 720,0 360,540 0,360" class="glass-piece clickable-poly" fill="url(#grad1)" data-page="about.html" data-title="About Me" />
+      <polygon id="poly2" points="720,0 1320,0 960,480 600,180" class="glass-piece clickable-poly" fill="url(#grad2)" data-page="projects.html" data-title="My Projects" />
+      <polygon id="poly3" points="1320,0 1320,840 1020,840 960,480" class="glass-piece clickable-poly" fill="url(#grad3)" data-page="skills.html" data-title="Skills & Tech" />
+      <polygon id="poly4" points="0,360 0,840 600,840 360,540" class="glass-piece clickable-poly" fill="url(#grad4)" data-page="experience.html" data-title="Experience" />
+      <polygon id="poly5" points="960,480 1020,840 600,840 360,540" class="glass-piece clickable-poly" fill="url(#grad5)" data-page="contact.html" data-title="Contact Me" />
+      
+      <!-- Portrait image, large and clipped to triangle -->
+      <image 
+        href="assets/images/portraits/brian-red-rocks.jpg" 
+        x="360" y="160" width="600" height="600"
+        clip-path="url(#portrait-clip)"
+        id="portrait-img"
+        style="opacity:0;"
+        preserveAspectRatio="xMidYMid slice"
+      />
+      
+      <polygon id="poly6" points="600,180 960,480 360,540" class="glass-piece portrait-border" fill="url(#grad6)" />
+      
+      <!-- Labels for each pane -->
+      <text id="label1" x="360" y="200" class="poly-label">About Me</text>
+      <text id="label2" x="900" y="150" class="poly-label">Projects</text>
+      <text id="label3" x="1150" y="400" class="poly-label">Skills</text>
+      <text id="label4" x="200" y="650" class="poly-label">Experience</text>
+      <text id="label5" x="750" y="700" class="poly-label">Contact</text>
+    </svg>
+
+    <div class="center-content">
+      <h1 class="title">Brian Cordry</h1>
+      <p class="subtitle">Web Developer & Designer</p>
+    </div>
+
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>

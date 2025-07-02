@@ -1,0 +1,188 @@
+/* General resets and base styles */
+:root {
+  --primary-purple: #7c5fd3;      /* Main purple for titles and primary elements */
+  --light-purple: #bfaaff;        /* Light purple for accents and glows */
+  --dark-purple: #6a4c93;         /* Dark purple for snowflakes and deep accents */
+  --bg-light: #f8f9fa;            /* Lightest background color */
+  --bg-medium: #e6e6fa;           /* Medium background color */
+  --bg-dark: #d1c4e9;             /* Darkest background color */
+  --white: #ffffff;               /* Pure white */
+  --transition-smooth: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition timing */
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e6e6fa 50%, #d1c4e9 100%);
+  min-height: 100vh;
+  font-family: 'Oswald', Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sticky Header Styles */
+.sticky-header {
+  position: fixed;    /* Fixed positioning for sticky behavior */
+  top: 0;    /* Stick to top of viewport */
+  left: 0;    /* Align to left edge */
+  width: 100%;    /* Full width */
+  background: rgba(248, 249, 250, 0.95); /* Semi-transparent background */
+  backdrop-filter: blur(10px);    /* Blur effect for glass-like appearance */
+  border-bottom: 1px solid rgba(191, 170, 255, 0.2); /* Subtle purple border */
+  z-index: 1000;    /* High z-index to stay above other content */
+  padding: 1rem 0;    /* Vertical padding */
+  box-shadow: 0 2px 20px rgba(124, 95, 211, 0.1); /* Subtle purple shadow */
+}
+
+.nav-container {
+  max-width: 1200px;    /* Maximum width for content */
+  margin: 0 auto;    /* Center the container */
+  padding: 0 2rem;    /* Horizontal padding */
+  display: flex;    /* Flexbox layout */
+  justify-content: space-between; /* Space between logo and nav links */
+  align-items: center;    /* Vertically center items */
+}
+
+.nav-logo .logo-link {
+  font-family: 'Ysabeau SC', sans-serif; /* Same font as main title */
+  font-size: 1.8rem;    /* Large font size for logo */
+  color: var(--primary-purple);   /* Primary purple color */
+  text-decoration: none;    /* Remove underline */
+  font-weight: 600;    /* Semi-bold weight */
+  letter-spacing: 0.05em;    /* Slight letter spacing */
+  transition: var(--transition-smooth); /* Smooth transition */
+}
+
+.nav-logo .logo-link:hover {
+  color: var(--light-purple);    /* Lighter purple on hover */
+  text-shadow: 0 2px 10px rgba(191, 170, 255, 0.5); /* Purple glow on hover */
+}
+
+.nav-links {
+  display: flex;    /* Flexbox for horizontal layout */
+  list-style: none;    /* Remove bullet points */
+  margin: 0;    /* Remove default margin */
+  padding: 0;    /* Remove default padding */
+  gap: 2rem;    /* Space between nav items */
+}
+
+.nav-link {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 1rem;    /* Standard font size */
+  color: var(--light-purple);    /* Light purple color */
+  text-decoration: none;    /* Remove underline */
+  font-weight: 400;    /* Normal weight */
+  letter-spacing: 0.05em;    /* Slight letter spacing */
+  padding: 0.5rem 1rem;    /* Padding for click area */
+  border-radius: 20px;    /* Rounded corners */
+  transition: var(--transition-smooth); /* Smooth transition */
+  position: relative;    /* For pseudo-element positioning */
+}
+
+.nav-link:hover {
+  color: var(--primary-purple);   /* Primary purple on hover */
+  background: rgba(191, 170, 255, 0.1); /* Light purple background */
+  transform: translateY(-2px);    /* Slight upward movement */
+}
+
+.nav-link.active {
+  color: var(--primary-purple);   /* Primary purple for active state */
+  background: rgba(124, 95, 211, 0.1); /* Darker purple background */
+  font-weight: 600;    /* Semi-bold for active state */
+}
+
+
+
+/* Snow effect styles */
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: absolute;
+  color: #6a4c93;                                    /* ← Even darker purple */
+  text-shadow: 
+    0 0 20px #bfaaff, 
+    0 0 10px #fff, 
+    0 0 30px #7c5fd3,
+    0 0 5px #000;                                    /* ← Multiple glow layers + subtle outline */
+  font-size: 1.2em;                                 /* ← Slightly larger base size */
+  animation: snowfall linear infinite;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Typography */
+.title {
+  font-family: 'Ysabeau SC', sans-serif;
+  font-optical-sizing: auto;
+  font-size: 4rem;
+  font-style: normal;
+  color: #7c5fd3;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5em 0;
+  text-shadow: 0 4px 20px #e6e6faCC, 0 2px 8px #7c5fd355;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.subtitle {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.8rem;
+  color: #bfaaff;
+  letter-spacing: 0.15em;
+  margin: 0;
+  text-shadow: 0 2px 12px #bfaaff88;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Utility */
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Responsive typography/layout */
+@media (max-width: 1400px) {
+  .title { font-size: 3.5rem; }
+  .subtitle { font-size: 1.6rem; }
+}
+
+@media (max-width: 1100px) {
+  .title { font-size: 3rem; }
+  .subtitle { font-size: 1.4rem; }
+}
+
+@media (max-width: 900px) {
+  .title { font-size: 2.5rem; }
+  .subtitle { font-size: 1.2rem; }
+}

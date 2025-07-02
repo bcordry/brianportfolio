@@ -1,0 +1,141 @@
+.fractured-bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 840px;
+  min-width: 1320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 2;
+}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+
+.glass-piece {
+  stroke: rgba(180, 160, 255, 0.4);
+  stroke-width: 2; /*overall line widths for all polygons which is overridden by #poly1, #poly2, etc*/
+  opacity: 0;
+  filter: drop-shadow(0 4px 20px rgba(180, 160, 255, 0.15));
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+  transform: scale(0.3) rotate(-15deg);
+}
+
+.clickable-poly {
+  cursor: pointer;
+}
+
+.clickable-poly:hover {
+  stroke: rgba(191, 170, 255, 0.8);
+  stroke-width: 5;
+  filter: drop-shadow(0 0 40px #bfaaff) brightness(1.3);
+  transform: scale(1.04) !important;
+}
+
+#poly1 { stroke-width: 3; } /*individual line widths for each polygon*/
+#poly2 { stroke-width: 3; }
+#poly3 { stroke-width: 3; }
+#poly4 { stroke-width: 3; }
+#poly5 { stroke-width: 3; }
+
+.portrait-border {
+  stroke: #bfaaff;
+  stroke-width: 2; /*individual line widths for center polygon*/
+  filter: drop-shadow(0 0 35px #bfaaff99);
+}
+
+#portrait-img {
+  transition: opacity 1.5s ease-out;
+  filter: drop-shadow(0 4px 20px #7c5fd355);
+}
+
+.poly-label {
+  font-family: 'Ysabeau SC', sans-serif;
+  font-optical-sizing: auto;
+  font-size: 24px;
+  fill: #bfaaff;
+  text-anchor: middle;
+  pointer-events: none;
+  opacity: 0;
+  font-weight: 400;
+  font-style: normal;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+    fill 0.3s cubic-bezier(0.4,0,0.2,1),
+    font-size 0.3s cubic-bezier(0.4,0,0.2,1),
+    font-weight 0.3s cubic-bezier(0.4,0,0.2,1),
+    filter 0.3s cubic-bezier(0.4,0,0.2,1),
+    transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  filter: blur(0.5px);
+}
+
+.poly-label.visible {
+  opacity: 0.35;
+  transform: translateY(0);
+}
+
+.poly-label.active {
+  opacity: 1;
+  fill: #7c5fd3;
+  font-size: 30px;
+  font-weight: 700;
+  filter: blur(0);
+  text-shadow: 0 2px 8px #e6e6fa88;
+  letter-spacing: 0.04em;
+  transform: scale(1.08);
+}
+
+#label1.active { transform: scale(1.08) translateX(-120px); } /* About Me: left */
+#label2.active { transform: scale(1.08) translateY(40px) translateX(-80px); } /* Projects: down and left */
+#label3.active { transform: scale(1.08) translateX(-30px) translateY(40px); }  /* Skills: right */
+#label4.active { transform: scale(1.08) translateX(20px) translateY(-60px); }  /* Experience: up and right */
+#label5.active { transform: scale(1.08) translateX(-60px) translateY(-100px); } /* Contact: up and left */
+
+
+
+.glass-animate {
+  opacity: 0.95 !important;
+  transform: scale(1) rotate(0deg) !important;
+}
+
+.show-title {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+@keyframes glassShimmer {
+  0% { filter: brightness(1.1) saturate(1.1) blur(0px); }
+  20% { filter: brightness(1.5) saturate(1.3) blur(2px) drop-shadow(0 0 80px #bfaaff); }
+  40% { filter: brightness(1.2) saturate(1.2) blur(1px) drop-shadow(0 0 60px #bfaaff); }
+  60% { filter: brightness(1.5) saturate(1.3) blur(2px) drop-shadow(0 0 100px #bfaaff); }
+  100% { filter: brightness(1.1) saturate(1.1) blur(0px); }
+}
+
+.shimmer-active {
+  animation: glassShimmer 8.0s ease-in-out infinite;
+}
+
+@media (max-width: 1400px) {
+  .fractured-bg { transform: scale(0.85); }
+  .title { font-size: 3.5rem; }
+  .subtitle { font-size: 1.6rem; }
+}
+
+@media (max-width: 1100px) {
+  .fractured-bg { transform: scale(0.7); }
+  .title { font-size: 3rem; }
+  .subtitle { font-size: 1.4rem; }
+}
+
+@media (max-width: 900px) {
+  .fractured-bg { transform: scale(0.55); }
+  .title { font-size: 2.5rem; }
+  .subtitle { font-size: 1.2rem; }
+}

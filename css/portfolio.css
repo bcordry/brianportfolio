@@ -1,0 +1,364 @@
+/* portfolio.css */
+
+/* Root color variables */
+:root {
+  --primary-purple: #7c5fd3;
+  --light-purple: #bfaaff;
+  --dark-purple: #6a4c93;
+  --bg-light: #f8f9fa;
+  --bg-medium: #e6e6fa;
+  --bg-dark: #d1c4e9;
+  --white: #fff;
+}
+
+/* Body styling */
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e6e6fa 50%, #d1c4e9 100%);
+  font-family: 'Oswald', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Sticky header styles */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(248, 249, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(191, 170, 255, 0.2);
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-logo .logo-link {
+  font-family: 'Ysabeau SC', sans-serif;
+  font-size: 1.8rem;
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+.nav-link {
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--light-purple);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--light-purple);
+  border-radius: 1px;
+}
+
+/* Main grid fills viewport below header */
+.portfolio-main {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Film reel grid: 5 columns, 4 rows, no gap */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0;
+  width: 95vw;
+  height: 85vh;
+  max-width: 1400px;
+  max-height: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+/* All grid items fill their cell, no spacing */
+.portfolio-grid > * {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+/* Portfolio cards: no border radius, no shadow, flush edges */
+.portfolio-card, .portfolio-filter-card, .portfolio-blank {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  border: 1px solid #e6e6fa;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  transition: none;
+  position: relative;
+}
+
+/* Blank squares: just a white cell, no content */
+.portfolio-blank {
+  background: #f8f9fa;
+  border: 1px solid #e6e6fa;
+  pointer-events: none;
+}
+
+/* Filter card: center filter pills vertically and horizontally */
+.portfolio-filter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border: 1px solid #bfaaff;
+  z-index: 2;
+}
+
+/* Filter pills: no border radius, stacked vertically */
+.filter-pill {
+  background: rgba(191, 170, 255, 0.15);
+  color: var(--primary-purple);
+  border: 2px solid rgba(191, 170, 255, 0.3);
+  padding: 0.7em 0;
+  border-radius: 0;
+  font-size: 1.1rem;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  outline: none;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5em;
+  width: 110px;
+  text-align: center;
+}
+
+.filter-pill.active,
+.filter-pill:hover {
+  background: linear-gradient(90deg, var(--primary-purple), var(--light-purple));
+  color: #fff;
+  border-color: var(--light-purple);
+}
+
+/* Card inner: no border radius, no shadow */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Card image: fill most of the card, no border radius */
+.card-img {
+  width: 90%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0.5em;
+}
+
+/* Card info: no border radius, no shadow, tight at bottom */
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  right: 0;
+  background: rgba(191, 170, 255, 0.10);
+  color: var(--primary-purple);
+  padding: 0.4em 0.5em;
+  text-align: center;
+  border-radius: 0;
+  font-size: 1em;
+  pointer-events: none;
+}
+
+/* Card title: no shadow, bold */
+.card-title {
+  font-family: 'Ysabeau SC', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+
+/* Remove hover effects for film reel look */
+.portfolio-card:hover .card-inner,
+.portfolio-card:hover .card-img,
+.portfolio-card:hover .card-info {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  background: rgba(191, 170, 255, 0.10);
+  color: var(--primary-purple);
+}
+
+/* Parallax background container */
+.parallax-bg {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Modal styles (unchanged from your previous version) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(209, 196, 233, 0.92);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.modal.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-backdrop {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-content {
+  background: var(--bg-light);
+  border-radius: 22px;
+  padding: 36px 32px 28px 32px;
+  max-width: 600px;
+  width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: var(--primary-purple);
+  box-shadow: 0 12px 48px rgba(191, 170, 255, 0.4);
+  position: relative;
+  animation: modalPop 0.5s cubic-bezier(.4, 2, .6, 1);
+  z-index: 3;
+}
+
+@keyframes modalPop {
+  from { 
+    transform: scale(0.8) translateY(60px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1) translateY(0); 
+    opacity: 1; 
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2.2rem;
+  color: var(--primary-purple);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  z-index: 4;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+.modal-title {
+  font-family: 'Ysabeau SC', sans-serif;
+  font-size: 1.8rem;
+  color: var(--primary-purple);
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 8px rgba(191, 170, 255, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.modal-body {
+  font-family: 'Oswald', Arial, sans-serif;
+  color: var(--dark-purple);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Responsive: stack to 2 columns on mobile */
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+}
