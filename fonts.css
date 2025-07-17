@@ -1,0 +1,296 @@
+/* ==== FONTS.CSS - Font Pairing Test Page Styles ==== */
+/* This file contains styles specific to the font testing page */
+
+/* ==== PAGE LAYOUT ==== */
+/* Main container and layout styles */
+
+.fonts-container {
+  padding: 2rem; /* Padding around main content */
+  max-width: var(--max-content-width); /* Use consistent max width */
+  margin: 0 auto; /* Center the container */
+  min-height: calc(100vh - var(--header-height)); /* Full height minus header */
+}
+
+/* Page header styling */
+.page-header {
+  text-align: center; /* Center align header content */
+  margin-bottom: 3rem; /* Space below header */
+  padding: 2rem 0; /* Vertical padding */
+}
+
+.page-title {
+  font-family: 'Ysabeau SC', sans-serif; /* Use existing title font */
+  font-size: 3rem; /* Large title size */
+  color: var(--primary-purple); /* Primary purple color */
+  margin: 0 0 1rem 0; /* Margin below title */
+  text-shadow: 0 4px 20px rgba(230, 230, 250, 0.8), 0 2px 8px rgba(124, 95, 211, 0.33); /* Purple glow */
+}
+
+.page-subtitle {
+  font-family: 'Oswald', Arial, sans-serif; /* Use existing subtitle font */
+  font-size: 1.2rem; /* Medium subtitle size */
+  color: var(--light-purple); /* Light purple color */
+  margin: 0; /* No margin */
+  letter-spacing: 0.1em; /* Slight letter spacing */
+}
+
+/* ==== FONT GRID LAYOUT ==== */
+/* Grid system for displaying font pairings */
+
+.font-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Space between grid items */
+  margin-top: 2rem; /* Space above grid */
+}
+
+/* ==== FONT CARD STYLING ==== */
+/* Individual font pairing card styles */
+
+.font-card {
+  background: rgba(248, 249, 250, 0.8); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Glass effect blur */
+  border: 1px solid rgba(191, 170, 255, 0.3); /* Light purple border */
+  border-radius: var(--border-radius); /* Consistent border radius */
+  padding: 1.5rem; /* Internal padding */
+  box-shadow: var(--shadow-medium); /* Medium shadow */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+.font-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: var(--shadow-heavy); /* Heavier shadow on hover */
+  border-color: rgba(191, 170, 255, 0.5); /* Stronger border on hover */
+}
+
+/* Font pairing information section */
+.font-info {
+  margin-bottom: 1.5rem; /* Space below info section */
+  padding-bottom: 1rem; /* Padding below info */
+  border-bottom: 1px solid rgba(191, 170, 255, 0.2); /* Subtle divider */
+}
+
+.pairing-title {
+  font-family: 'Oswald', Arial, sans-serif; /* Use body font for consistency */
+  font-size: 1.1rem; /* Medium font size */
+  color: var(--primary-purple); /* Primary purple color */
+  margin: 0 0 0.5rem 0; /* Small margin below */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.pairing-description {
+  font-family: 'Oswald', Arial, sans-serif; /* Use body font */
+  font-size: 0.9rem; /* Smaller descriptive text */
+  color: var(--light-purple); /* Light purple color */
+  margin: 0; /* No margin */
+  font-style: italic; /* Italic for description */
+}
+
+/* ==== FONT SAMPLES STYLING ==== */
+/* Styles for the actual font samples */
+
+.font-samples {
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack samples vertically */
+  gap: 1rem; /* Space between samples */
+}
+
+/* Base styles for header samples */
+.header-sample {
+  font-size: 2rem; /* Large header size */
+  font-weight: 600; /* Semi-bold weight */
+  color: var(--primary-purple); /* Primary purple color */
+  line-height: 1.2; /* Tight line height */
+  margin: 0; /* No margin */
+}
+
+/* Base styles for body samples */
+.body-sample {
+  font-size: 1rem; /* Standard body size */
+  color: var(--primary-purple); /* Primary purple color */
+  line-height: 1.6; /* Comfortable reading line height */
+  margin: 0; /* No margin */
+}
+
+/* ==== INDIVIDUAL FONT PAIRING STYLES ==== */
+/* Specific font family assignments for each pairing */
+
+/* Pairing 1: Montserrat + Cardo */
+.montserrat-cardo-header {
+  font-family: 'Montserrat', sans-serif; /* Geometric sans for headers */
+}
+.montserrat-cardo-body {
+  font-family: 'Cardo', serif; /* Old-style serif for body */
+}
+
+/* Pairing 2: Playfair Display + Alice */
+.playfair-alice-header {
+  font-family: 'Playfair Display', serif; /* Didone serif for headers */
+}
+.playfair-alice-body {
+  font-family: 'Alice', serif; /* Transitional serif for body */
+}
+
+/* Pairing 3: Lora + Roboto */
+.lora-roboto-header {
+  font-family: 'Lora', serif; /* Moderate serif for headers */
+}
+.lora-roboto-body {
+  font-family: 'Roboto', sans-serif; /* Neo-grotesque sans for body */
+}
+
+/* Pairing 4: Bebas Neue + Montserrat */
+.bebas-montserrat-header {
+  font-family: 'Bebas Neue', cursive; /* Display caps for headers */
+  letter-spacing: 0.1em; /* Tight tracking for display font */
+}
+.bebas-montserrat-body {
+  font-family: 'Montserrat', sans-serif; /* Geometric sans for body */
+}
+
+/* Pairing 5: Didact Gothic + Arimo */
+.didact-arimo-header {
+  font-family: 'Didact Gothic', sans-serif; /* Humanist sans for headers */
+  font-weight: 500; /* Medium weight */
+}
+.didact-arimo-body {
+  font-family: 'Arimo', sans-serif; /* Humanist sans for body */
+}
+
+/* Pairing 6: Quicksand + Cormorant Garamond */
+.quicksand-cormorant-header {
+  font-family: 'Quicksand', sans-serif; /* Geometric sans for headers */
+}
+.quicksand-cormorant-body {
+  font-family: 'Cormorant Garamond', serif; /* Serif for body */
+}
+
+/* Pairing 7: Source Sans Pro + Source Serif Pro */
+.source-sans-serif-header {
+  font-family: 'Source Sans Pro', sans-serif; /* Grotesque sans for headers */
+}
+.source-sans-serif-body {
+  font-family: 'Source Serif Pro', serif; /* Matching serif for body */
+}
+
+/* Pairing 8: Oxygen + Source Sans Pro */
+.oxygen-source-header {
+  font-family: 'Oxygen', sans-serif; /* Tech sans for headers */
+  font-weight: 700; /* Bold weight for condensed font */
+}
+.oxygen-source-body {
+  font-family: 'Source Sans Pro', sans-serif; /* Grotesque sans for body */
+}
+
+/* Pairing 9: Raleway + Open Sans */
+.raleway-open-header {
+  font-family: 'Raleway', sans-serif; /* Geometric sans for headers */
+}
+.raleway-open-body {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Pairing 10: Roboto + Lora */
+.roboto-lora-header {
+  font-family: 'Roboto', sans-serif; /* Neo-grotesque sans for headers */
+  font-weight: 500; /* Medium weight */
+}
+.roboto-lora-body {
+  font-family: 'Lora', serif; /* Serif for body */
+}
+
+/* Pairing 11: Nunito + Open Sans */
+.nunito-open-header {
+  font-family: 'Nunito', sans-serif; /* Rounded sans for headers */
+}
+.nunito-open-body {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Pairing 12: Work Sans + Open Sans */
+.work-open-header {
+  font-family: 'Work Sans', sans-serif; /* Structured sans for headers */
+}
+.work-open-body {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Pairing 13: PT Sans + Cabin */
+.pt-cabin-header {
+  font-family: 'PT Sans', sans-serif; /* Geometric sans for headers */
+  font-weight: 700; /* Bold weight */
+}
+.pt-cabin-body {
+  font-family: 'Cabin', sans-serif; /* Rounded sans for body */
+}
+
+/* Pairing 14: Hind + Open Sans */
+.hind-open-header {
+  font-family: 'Hind', sans-serif; /* Neo-grotesque sans for headers */
+  font-weight: 700; /* Heavy weight for tall font */
+}
+.hind-open-body {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+  font-weight: 300; /* Light weight for contrast */
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+/* Responsive adjustments for different screen sizes */
+
+/* Medium screens (tablets) */
+@media (max-width: 1100px) {
+  .font-grid {
+    grid-template-columns: 1fr; /* Single column on tablets */
+    gap: 1.5rem; /* Smaller gap */
+  }
+  
+  .header-sample {
+    font-size: 1.8rem; /* Smaller header samples */
+  }
+  
+  .page-title {
+    font-size: 2.5rem; /* Smaller page title */
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 900px) {
+  .fonts-container {
+    padding: 1rem; /* Less padding on mobile */
+  }
+  
+  .font-card {
+    padding: 1rem; /* Less padding in cards */
+  }
+  
+  .header-sample {
+    font-size: 1.5rem; /* Even smaller header samples */
+  }
+  
+  .body-sample {
+    font-size: 0.9rem; /* Smaller body samples */
+  }
+  
+  .page-title {
+    font-size: 2rem; /* Mobile page title */
+  }
+  
+  .page-subtitle {
+    font-size: 1rem; /* Mobile subtitle */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 600px) {
+  .font-grid {
+    gap: 1rem; /* Minimal gap on small screens */
+  }
+  
+  .header-sample {
+    font-size: 1.3rem; /* Compact header samples */
+  }
+  
+  .body-sample {
+    font-size: 0.85rem; /* Compact body samples */
+  }
+}
