@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding for proper text display -->
+  <meta charset="UTF-8">
+  <!-- Responsive viewport meta tag for mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title for browser tab -->
+  <title>Contact - Brian Cordry</title>
+
+  <!-- Google Fonts preconnect for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Import Oswald (body) and Ysabeau SC (titles) fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+
+  <!-- CSS files: unified styles first, then page-specific -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+  <!-- Snow effect container (fixed, covers viewport) -->
+  <div class="snow-container" id="snow-container"></div>
+
+  <!-- Sticky header navigation (unified across all non-index pages) -->
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <!-- Logo/brand on the left -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Brian Cordry</a>
+      </div>
+      <!-- Navigation links on the right -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="work-journey.html" class="nav-link">Experience</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Parallax background for subtle movement effect -->
+  <div class="parallax-bg" id="parallax-bg"></div>
+
+  <!-- Main content container for contact information -->
+  <main class="contact-main">
+    <!-- Page header with title and subtitle -->
+    <div class="page-header">
+      <h1 class="page-title">Let's Connect</h1>
+      <p class="page-subtitle">Ready to bring your vision to life</p>
+    </div>
+
+    <!-- Contact content grid layout -->
+    <div class="contact-grid">
+      <!-- Profile picture card with animated border -->
+      <div class="profile-card">
+        <div class="profile-image-container">
+          <!-- Animated border rings around profile image -->
+          <div class="profile-ring ring-1"></div>
+          <div class="profile-ring ring-2"></div>
+          <div class="profile-ring ring-3"></div>
+          <!-- Profile image placeholder -->
+          <div class="profile-image">
+            <img src="https://placehold.co/300x300?text=Brian+Cordry" alt="Brian Cordry Profile" class="profile-img">
+          </div>
+          <!-- Speech bubble for self-aware messages (hidden by default) -->
+          <div class="profile-speech-bubble" id="profile-speech-bubble" style="display: none;"></div>
+        </div>
+      </div>
+
+      <!-- Contact information cards -->
+      <div class="contact-info-grid">
+        <!-- Email contact card -->
+        <div class="contact-card email-card">
+          <div class="card-icon">
+            <!-- Email icon SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Email</h3>
+            <a href="mailto:briancordry@gmail.com" class="contact-link email-link">
+              briancordry@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Phone contact card with obfuscation -->
+        <div class="contact-card phone-card">
+          <div class="card-icon">
+            <!-- Phone icon SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Phone</h3>
+            <!-- Obfuscated phone number that reveals on click -->
+            <button class="contact-link phone-link" id="phone-reveal">
+              <span class="phone-hidden">Click to reveal</span>
+              <span class="phone-revealed" style="display: none;">720-271-2008</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Location contact card -->
+        <div class="contact-card location-card">
+          <div class="card-icon">
+            <!-- Location icon SVG -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Location</h3>
+            <span class="contact-text location-text">Denver, CO</span>
+          </div>
+        </div>
+
+        <!-- Availability status card -->
+        <div class="contact-card availability-card">
+          <div class="card-icon">
+            <!-- Status icon with animated pulse -->
+            <div class="status-indicator">
+              <div class="status-dot"></div>
+              <div class="status-pulse"></div>
+            </div>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Status</h3>
+            <span class="contact-text status-text">Available for projects</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call-to-action section -->
+      <div class="cta-section">
+        <h2 class="cta-title">Ready to start your project?</h2>
+        <p class="cta-description">
+          I'm always excited to work on new challenges and bring creative ideas to life. 
+          Let's discuss how we can make your vision a reality.
+        </p>
+        <!-- Animated CTA button -->
+        <a href="mailto:briancordry@gmail.com" class="cta-button">
+          <span class="button-text">Get In Touch</span>
+          <div class="button-particles"></div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- JavaScript for snow, parallax, phone reveal, and animations -->
+  <script src="js/contact.js"></script>
+</body>
+</html>

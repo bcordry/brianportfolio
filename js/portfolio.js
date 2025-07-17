@@ -227,7 +227,7 @@ function initializeCardClickHandlers() {
     'Winterfox Redesign': {
       description: 'A full redesign of an esports organization website. I collaborated on visual design and layout, helping the brand look cleaner and more professional.',
       tech: 'Web Design, UI/UX, Frontend Development',
-      year: '2015',
+      year: '2016',
       link: null
     },
     'Emerald Imperium': {
@@ -240,13 +240,13 @@ function initializeCardClickHandlers() {
       description: 'A detailed website created for the Pokemon ROM Hack "Terra Emerald". Many advanced features including interactive maps, character databases, and community tools.',
       tech: 'Advanced JavaScript, Database Integration, Interactive Features',
       year: '2025',
-      link: null
+      link: 'http://google.com'
     },
     'LeBlanc Solutions': {
-      description: 'LeBlanc Solutions - A professional website for a local businessperson who does Notary & Private Bartending work. Clean, professional design focused on service offerings.',
-      tech: 'Professional Web Design, Business Website, Contact Forms',
+      description: 'LeBlanc Solutions - A professional website for a local businesswoman offering Notary services & Private Bartending work. Clean, professional design focused on service offerings and up-front pricing.',
+      tech: 'HTML, CSS, JavaScript, Design Consultation, Brand Direction',
       year: '2025',
-      link: null
+      link: 'http://leblancsolutions.com'
     },
     'Spire Records': {
       description: 'Record-keeping website for Slay The Spire. Allows players to track their runs, statistics, and progress through the game.',
@@ -263,20 +263,22 @@ function initializeCardClickHandlers() {
     'Winterfox Pride': {
       description: 'Online documentary series (2016-2018) showcasing the esports organization Winterfox. Produced and edited video content for web distribution.',
       tech: 'Video Production, Web Video, Documentary Series',
-      year: '2016-2018',
-      link: null
+      year: '2015-2016',
+      link: null,
+      videoId: '9qYg6q41_4E' // Replace with actual YouTube video ID
     },
     'Winterfox Aspire': {
       description: 'Second series in the Winterfox documentary collection. Continued coverage of the esports organization with improved production values.',
       tech: 'Advanced Video Production, Series Production, Esports Coverage',
-      year: '2016-2018',
-      link: null
+      year: '2016',
+      link: null,
+      videoId: 'mzI0th7-GDo' // Replace with actual YouTube video ID
     },
-    'Hackathon Lead': {
-      description: 'Led a team of 8 developers to victory in a 48-hour hackathon, creating an AI-powered application that won first place.',
-      tech: 'Team Leadership, AI Development, Rapid Prototyping',
-      year: '2024',
-      link: null
+    'Nuzlocke Hall of Fame': {
+      description: 'Created and currently maintaining a Hall of Fame for the Pokemon difficulty ROM Hack Nuzlocke community. This project exhaustively tracks and showcases notable achievements in the most difficult Nuzlocke games. This Hall of Fame has garnered over 1,000,000 views and is a central hub for the Nuzlocke community.',
+      tech: 'Microsoft Excel, VBA',
+      year: '2024-present',
+      link: 'https://docs.google.com/spreadsheets/d/1l9Vmohnlkz8KgHIFEzCQ2UK5-PRGT16dNDYnsJgrH7A/edit?gid=1916946302#gid=1916946302'
     },
     'Team Leadership': {
       description: 'Various team leadership roles in development projects, coordinating cross-functional teams and ensuring project delivery.',
@@ -300,6 +302,8 @@ function initializeCardClickHandlers() {
       // Get project information
       const titleElement = card.querySelector('.card-title');
       const imgElement = card.querySelector('.card-img');
+      const isVideo = card.dataset.type === 'video';
+      const videoId = imgElement?.dataset?.videoId; // Get video ID from data attribute
       
       if (!titleElement || !imgElement) return;
       
@@ -314,10 +318,28 @@ function initializeCardClickHandlers() {
       
       modalTitle.textContent = title;
       
-      // Build modal content
-      let modalContent = `
-        <img src="${imgSrc}" alt="${title}" style="width:100%; border-radius:12px; margin:18px 0; box-shadow: 0 4px 16px rgba(191,170,255,0.3);">
-      `;
+      // Build modal content - handle video vs image
+      let modalContent = '';
+      
+      if (isVideo && (videoId || project?.videoId)) {
+        // Use video ID from data attribute or project data
+        const actualVideoId = videoId || project.videoId;
+        modalContent += `
+          <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin: 18px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(191,170,255,0.3);">
+            <iframe 
+              src="https://www.youtube.com/embed/${actualVideoId}?autoplay=1&rel=0" 
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        `;
+      } else {
+        // Regular image
+        modalContent += `
+          <img src="${imgSrc}" alt="${title}" style="width:100%; border-radius:12px; margin:18px 0; box-shadow: 0 4px 16px rgba(191,170,255,0.3);">
+        `;
+      }
       
       if (project) {
         modalContent += `

@@ -1,188 +1,302 @@
-/* General resets and base styles */
+/* ===== UNIFIED BASE STYLES FOR ALL PAGES ===== */
+/* This file contains all shared variables, typography, and common components */
+
+/* CSS Custom Properties (Variables) - Single source of truth for all colors and values */
 :root {
-  --primary-purple: #7c5fd3;      /* Main purple for titles and primary elements */
-  --light-purple: #bfaaff;        /* Light purple for accents and glows */
-  --dark-purple: #6a4c93;         /* Dark purple for snowflakes and deep accents */
-  --bg-light: #f8f9fa;            /* Lightest background color */
-  --bg-medium: #e6e6fa;           /* Medium background color */
-  --bg-dark: #d1c4e9;             /* Darkest background color */
-  --white: #ffffff;               /* Pure white */
-  --transition-smooth: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition timing */
+  /* Color Palette - Purple theme with light backgrounds */
+  --primary-purple: #7c5fd3;    /* Main purple for titles and primary elements */
+  --light-purple: #bfaaff;      /* Light purple for accents and glows */
+  --dark-purple: #6a4c93;       /* Dark purple for snowflakes and deep accents */
+  --bg-light: #f8f9fa;          /* Lightest background color */
+  --bg-medium: #e6e6fa;         /* Medium background color */
+  --bg-dark: #d1c4e9;           /* Darkest background color */
+  --white: #ffffff;             /* Pure white (fixed from #ffff) */
+  
+  /* Layout Variables */
+  --header-height: 80px;        /* Consistent header height across all pages */
+  --max-content-width: 1400px;  /* Maximum width for content containers */
+  --border-radius: 20px;        /* Standard border radius for cards and modals */
+  --border-radius-small: 12px;  /* Smaller border radius for buttons and small elements */
+  
+  /* Transition Variables */
+  --transition-fast: 0.3s ease; /* Fast transitions for hovers */
+  --transition-smooth: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transitions for animations */
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy transitions */
+  
+  /* Shadow Variables */
+  --shadow-light: 0 2px 8px rgba(124, 95, 211, 0.1);     /* Light purple shadow */
+  --shadow-medium: 0 8px 30px rgba(124, 95, 211, 0.2);   /* Medium purple shadow */
+  --shadow-heavy: 0 20px 60px rgba(124, 95, 211, 0.3);   /* Heavy purple shadow for modals */
 }
 
+/* ===== GLOBAL RESETS AND BASE STYLES ===== */
+/* Reset default browser styles and set consistent base styles */
 
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e6e6fa 50%, #d1c4e9 100%);
-  min-height: 100vh;
-  font-family: 'Oswald', Arial, sans-serif;
-  overflow: hidden;
-  position: relative;
+* {
+  box-sizing: border-box; /* Include padding and border in element width/height */
 }
 
-/* Sticky Header Styles */
+html, body {
+  height: 100%;              /* Full viewport height */
+  margin: 0;                 /* Remove default margin */
+  padding: 0;                /* Remove default padding */
+  font-family: 'Oswald', Arial, sans-serif; /* Default font family */
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 50%, var(--bg-dark) 100%); /* Gradient background */
+  min-height: 100vh;         /* Minimum full viewport height */
+  overflow-x: hidden;        /* Prevent horizontal scroll */
+}
+
+/* ===== UNIFIED STICKY HEADER STYLES ===== */
+/* Consistent header styling across all pages */
+
 .sticky-header {
-  position: fixed;    /* Fixed positioning for sticky behavior */
-  top: 0;    /* Stick to top of viewport */
-  left: 0;    /* Align to left edge */
-  width: 100%;    /* Full width */
+  position: fixed;           /* Fixed positioning for sticky behavior */
+  top: 0;                    /* Stick to top of viewport */
+  left: 0;                   /* Align to left edge */
+  width: 100%;               /* Full width */
+  height: var(--header-height); /* Use consistent header height */
   background: rgba(248, 249, 250, 0.95); /* Semi-transparent background */
-  backdrop-filter: blur(10px);    /* Blur effect for glass-like appearance */
+  backdrop-filter: blur(10px); /* Blur effect for glass-like appearance */
   border-bottom: 1px solid rgba(191, 170, 255, 0.2); /* Subtle purple border */
-  z-index: 1000;    /* High z-index to stay above other content */
-  padding: 1rem 0;    /* Vertical padding */
-  box-shadow: 0 2px 20px rgba(124, 95, 211, 0.1); /* Subtle purple shadow */
+  z-index: 1000;             /* High z-index to stay above other content */
+  display: flex;             /* Flexbox for alignment */
+  align-items: center;       /* Vertically center content */
+  box-shadow: var(--shadow-light); /* Consistent shadow */
+  transition: var(--transition-fast); /* Smooth transitions */
 }
 
+/* Navigation Container - Centers and constrains nav content */
 .nav-container {
-  max-width: 1200px;    /* Maximum width for content */
-  margin: 0 auto;    /* Center the container */
-  padding: 0 2rem;    /* Horizontal padding */
-  display: flex;    /* Flexbox layout */
+  max-width: var(--max-content-width); /* Maximum width for content */
+  width: 100%;               /* Full width within max constraint */
+  margin: 0 auto;            /* Center the container */
+  padding: 0 2rem;           /* Horizontal padding */
+  display: flex;             /* Flexbox layout */
   justify-content: space-between; /* Space between logo and nav links */
-  align-items: center;    /* Vertically center items */
+  align-items: center;       /* Vertically center items */
 }
 
+/* Logo/Brand Styling */
 .nav-logo .logo-link {
-  font-family: 'Ysabeau SC', sans-serif; /* Same font as main title */
-  font-size: 1.8rem;    /* Large font size for logo */
-  color: var(--primary-purple);   /* Primary purple color */
-  text-decoration: none;    /* Remove underline */
-  font-weight: 600;    /* Semi-bold weight */
+  font-family: 'Ysabeau SC', sans-serif; /* Same font as main titles */
+  font-size: 1.8rem;         /* Large font size for logo */
+  color: var(--primary-purple); /* Primary purple color */
+  text-decoration: none;     /* Remove underline */
+  font-weight: 600;          /* Semi-bold weight */
   letter-spacing: 0.05em;    /* Slight letter spacing */
-  transition: var(--transition-smooth); /* Smooth transition */
+  transition: var(--transition-fast); /* Smooth transition */
 }
 
 .nav-logo .logo-link:hover {
-  color: var(--light-purple);    /* Lighter purple on hover */
+  color: var(--light-purple); /* Lighter purple on hover */
   text-shadow: 0 2px 10px rgba(191, 170, 255, 0.5); /* Purple glow on hover */
+  transform: translateY(-1px); /* Slight upward movement */
 }
 
+/* Navigation Links Container */
 .nav-links {
-  display: flex;    /* Flexbox for horizontal layout */
-  list-style: none;    /* Remove bullet points */
-  margin: 0;    /* Remove default margin */
-  padding: 0;    /* Remove default padding */
-  gap: 2rem;    /* Space between nav items */
+  display: flex;             /* Flexbox for horizontal layout */
+  list-style: none;          /* Remove bullet points */
+  margin: 0;                 /* Remove default margin */
+  padding: 0;                /* Remove default padding */
+  gap: 2rem;                 /* Space between nav items */
 }
 
+/* Updated navigation styles in styles.css */
+
+/* Individual Navigation Links */
 .nav-link {
   font-family: 'Oswald', Arial, sans-serif; /* Body font */
   font-size: 1rem;    /* Standard font size */
-  color: var(--light-purple);    /* Light purple color */
+  color: var(--light-purple); /* Light purple color */
   text-decoration: none;    /* Remove underline */
-  font-weight: 400;    /* Normal weight */
+  font-weight: 500;    /* Medium weight (increased from 400) */
   letter-spacing: 0.05em;    /* Slight letter spacing */
   padding: 0.5rem 1rem;    /* Padding for click area */
-  border-radius: 20px;    /* Rounded corners */
-  transition: var(--transition-smooth); /* Smooth transition */
+  border-radius: var(--border-radius-small); /* Rounded corners */
+  transition: var(--transition-fast); /* Smooth transition */
   position: relative;    /* For pseudo-element positioning */
 }
 
 .nav-link:hover {
-  color: var(--primary-purple);   /* Primary purple on hover */
+  color: var(--primary-purple); /* Primary purple on hover */
   background: rgba(191, 170, 255, 0.1); /* Light purple background */
-  transform: translateY(-2px);    /* Slight upward movement */
+  transform: translateY(-2px); /* Slight upward movement */
+  box-shadow: var(--shadow-light); /* Add shadow on hover */
 }
 
 .nav-link.active {
-  color: var(--primary-purple);   /* Primary purple for active state */
+  color: var(--primary-purple); /* Primary purple for active state */
   background: rgba(124, 95, 211, 0.1); /* Darker purple background */
-  font-weight: 600;    /* Semi-bold for active state */
+  font-weight: 700;    /* Bold for active state (increased from 600) */
+  /* Removed the ::after pseudo-element that created the underline */
 }
 
+/* Logo/Brand Styling - also make bolder */
+.nav-logo .logo-link {
+  font-family: 'Ysabeau SC', sans-serif; /* Same font as main titles */
+  font-size: 1.8rem;    /* Large font size for logo */
+  color: var(--primary-purple); /* Primary purple color */
+  text-decoration: none;    /* Remove underline */
+  font-weight: 700;    /* Bold weight (increased from 600) */
+  letter-spacing: 0.05em;    /* Slight letter spacing */
+  transition: var(--transition-fast); /* Smooth transition */
+}
 
+/* ===== UNIFIED SNOW EFFECT STYLES ===== */
+/* Consistent snow animation across all pages */
 
-/* Snow effect styles */
 .snow-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
+  position: fixed;           /* Fixed positioning to cover viewport */
+  top: 0;                    /* Cover from top */
+  left: 0;                   /* Cover from left */
+  width: 100vw;              /* Full viewport width */
+  height: 100vh;             /* Full viewport height */
+  pointer-events: none;      /* Don't interfere with clicks */
+  z-index: 1;                /* Low z-index, above background but below content */
+  overflow: hidden;          /* Hide snowflakes outside viewport */
 }
 
 .snowflake {
-  position: absolute;
-  color: #6a4c93;                                    /* ← Even darker purple */
+  position: absolute;        /* Absolute positioning for animation */
+  color: var(--dark-purple); /* Dark purple color for snowflakes */
   text-shadow: 
-    0 0 20px #bfaaff, 
-    0 0 10px #fff, 
-    0 0 30px #7c5fd3,
-    0 0 5px #000;                                    /* ← Multiple glow layers + subtle outline */
-  font-size: 1.2em;                                 /* ← Slightly larger base size */
-  animation: snowfall linear infinite;
-  user-select: none;
-  pointer-events: none;
-  will-change: transform, opacity;
+    0 0 20px var(--light-purple),  /* Outer glow */
+    0 0 10px var(--white),          /* Middle glow */
+    0 0 30px var(--primary-purple), /* Extended glow */
+    0 0 5px #000;                   /* Subtle outline for definition */
+  font-size: 1.2em;         /* Base size for snowflakes */
+  animation: snowfall linear infinite; /* Continuous falling animation */
+  user-select: none;         /* Prevent text selection */
+  pointer-events: none;      /* Don't interfere with clicks */
+  will-change: transform, opacity; /* Optimize for animation performance */
 }
 
+/* Snowfall Animation - Snowflakes fall from top to bottom with rotation */
 @keyframes snowfall {
   0% {
-    transform: translateY(-100vh) rotate(0deg);
-    opacity: 1;
+    transform: translateY(-100vh) rotate(0deg); /* Start above viewport */
+    opacity: 1;                                 /* Start visible */
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
+    transform: translateY(100vh) rotate(360deg); /* End below viewport with full rotation */
+    opacity: 0;                                  /* Fade out at bottom */
   }
 }
 
-/* Typography */
+/* ===== UNIFIED TYPOGRAPHY STYLES ===== */
+/* Consistent text styling across all pages */
+
 .title {
-  font-family: 'Ysabeau SC', sans-serif;
-  font-optical-sizing: auto;
-  font-size: 4rem;
-  font-style: normal;
-  color: #7c5fd3;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.5em 0;
-  text-shadow: 0 4px 20px #e6e6faCC, 0 2px 8px #7c5fd355;
-  opacity: 0;
-  transform: translateY(50px) scale(0.9);
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: 'Ysabeau SC', sans-serif; /* Display font for titles */
+  font-optical-sizing: auto;  /* Optimize font rendering */
+  font-size: 4rem;            /* Large font size */
+  font-style: normal;         /* Normal style */
+  color: var(--primary-purple); /* Primary purple color */
+  letter-spacing: 0.08em;     /* Wide letter spacing */
+  margin: 0 0 0.5em 0;        /* Margin below title */
+  text-shadow: 0 4px 20px rgba(230, 230, 250, 0.8), 0 2px 8px rgba(124, 95, 211, 0.33); /* Layered text shadow */
+  opacity: 0;                 /* Start invisible for animation */
+  transform: translateY(50px) scale(0.9); /* Start below and smaller for animation */
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth entrance animation */
 }
 
 .subtitle {
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.8rem;
-  color: #bfaaff;
-  letter-spacing: 0.15em;
-  margin: 0;
-  text-shadow: 0 2px 12px #bfaaff88;
-  opacity: 0;
-  transform: translateY(50px) scale(0.9);
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-family: 'Oswald', Arial, sans-serif; /* Body font for subtitles */
+  font-size: 1.8rem;          /* Medium-large font size */
+  color: var(--light-purple); /* Light purple color */
+  letter-spacing: 0.15em;     /* Wide letter spacing */
+  margin: 0;                  /* No margin */
+  text-shadow: 0 2px 12px rgba(191, 170, 255, 0.53); /* Purple glow */
+  opacity: 0;                 /* Start invisible for animation */
+  transform: translateY(50px) scale(0.9); /* Start below and smaller for animation */
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth entrance animation */
 }
 
-/* Utility */
+/* Animation class to show titles */
+.show-title {
+  opacity: 1 !important;      /* Make visible */
+  transform: translateY(0) scale(1) !important; /* Move to final position and size */
+}
+
+/* ===== UTILITY CLASSES ===== */
+/* Reusable utility classes for common layouts and effects */
+
 .center-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  text-align: center;
-  pointer-events: none;
+  position: absolute;         /* Absolute positioning */
+  top: 50%;                   /* Center vertically */
+  left: 50%;                  /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact center */
+  z-index: 10;                /* Above background elements */
+  text-align: center;         /* Center text alignment */
+  pointer-events: none;       /* Don't interfere with clicks */
 }
 
-/* Responsive typography/layout */
+.main-content {
+  max-width: var(--max-content-width); /* Maximum width for content */
+  margin: 0 auto;             /* Center the content */
+  padding-top: var(--header-height); /* Space for sticky header */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Responsive breakpoints for different screen sizes */
+
+/* Large screens (desktops) */
 @media (max-width: 1400px) {
-  .title { font-size: 3.5rem; }
-  .subtitle { font-size: 1.6rem; }
+  .title { font-size: 3.5rem; } /* Smaller title */
+  .subtitle { font-size: 1.6rem; } /* Smaller subtitle */
+  
+  .nav-container {
+    padding: 0 1.5rem;        /* Less padding */
+  }
 }
 
+/* Medium screens (tablets) */
 @media (max-width: 1100px) {
-  .title { font-size: 3rem; }
-  .subtitle { font-size: 1.4rem; }
+  .title { font-size: 3rem; }   /* Even smaller title */
+  .subtitle { font-size: 1.4rem; } /* Even smaller subtitle */
+  
+  .nav-links {
+    gap: 1.5rem;              /* Less gap between nav items */
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;        /* Smaller nav links */
+    padding: 0.4rem 0.8rem;   /* Less padding */
+  }
 }
 
+/* Small screens (mobile) */
 @media (max-width: 900px) {
-  .title { font-size: 2.5rem; }
-  .subtitle { font-size: 1.2rem; }
+  .title { font-size: 2.5rem; } /* Mobile title size */
+  .subtitle { font-size: 1.2rem; } /* Mobile subtitle size */
+  
+  .nav-container {
+    padding: 0 1rem;          /* Minimal padding */
+  }
+  
+  .nav-links {
+    gap: 1rem;                /* Minimal gap */
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;       /* Smaller mobile nav */
+    padding: 0.3rem 0.6rem;   /* Minimal padding */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 600px) {
+  :root {
+    --header-height: 70px;    /* Shorter header on mobile */
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;          /* Allow wrapping on very small screens */
+    gap: 0.5rem;              /* Very small gap */
+  }
+  
+  .nav-logo .logo-link {
+    font-size: 1.5rem;        /* Smaller logo */
+  }
 }

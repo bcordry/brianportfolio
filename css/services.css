@@ -1,0 +1,476 @@
+/* ==== SERVICES PAGE SPECIFIC STYLES ==== */
+/* Styles for the services and testimonials page with animated cards */
+
+/* Main Content Styling */
+.main-content {
+  padding-top: calc(var(--header-height) + 2rem); /* Space for header plus extra padding */
+  padding-bottom: 4rem; /* Bottom padding for page */
+}
+
+/* ==== SECTION HEADERS ==== */
+/* Consistent styling for section titles and subtitles */
+
+.section-header {
+  text-align: center; /* Center align header content */
+  margin-bottom: 4rem; /* Space below header */
+  padding: 0 2rem; /* Horizontal padding */
+}
+
+.section-header .title {
+  font-size: 3.5rem; /* Large title size */
+  margin-bottom: 1rem; /* Space below title */
+  opacity: 1; /* Override default opacity from styles.css */
+  transform: none; /* Override default transform from styles.css */
+}
+
+.section-header .subtitle {
+  font-size: 1.4rem; /* Subtitle size */
+  opacity: 1; /* Override default opacity from styles.css */
+  transform: none; /* Override default transform from styles.css */
+  max-width: 600px; /* Limit subtitle width */
+  margin: 0 auto; /* Center the subtitle */
+}
+
+/* ==== SERVICES SECTION ==== */
+/* Main services section container */
+
+.services-section {
+  max-width: var(--max-content-width); /* Maximum width constraint */
+  margin: 0 auto; /* Center the section */
+  padding: 0 2rem; /* Horizontal padding */
+  margin-bottom: 6rem; /* Space below services section */
+}
+
+/* Services Grid Layout */
+.services-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid columns */
+  gap: 2rem; /* Gap between grid items */
+  margin-bottom: 4rem; /* Space below grid */
+}
+
+/* ==== SERVICE CARD STYLES ==== */
+/* Individual service card styling with hover effects */
+
+.service-card {
+  background: rgba(248, 249, 250, 0.95); /* Semi-transparent white background */
+  border: 2px solid rgba(191, 170, 255, 0.2); /* Light purple border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 2rem; /* Internal padding */
+  position: relative; /* For absolute positioned children */
+  overflow: hidden; /* Hide overflow for snow effect */
+
+  box-shadow: var(--shadow-light); /* Light shadow */
+  transition: var(--transition-smooth); /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  transform: translateY(0) scale(1); /* Initial transform state */
+}
+
+/* Service Card Hover Effects */
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02); /* Lift and slightly scale on hover */
+  border-color: var(--light-purple); /* Brighter border on hover */
+  box-shadow: var(--shadow-heavy); /* Heavier shadow on hover */
+  background: rgba(248, 249, 250, 0.98); /* More opaque background */
+}
+
+/* Service Card Snow Container - Hidden by default */
+.card-snow-container {
+  position: absolute; /* Absolute positioning within card */
+  top: 0; /* Cover from top */
+  left: 0; /* Cover from left */
+  width: 100%; /* Full card width */
+  height: 100%; /* Full card height */
+  pointer-events: none; /* Don't interfere with clicks */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease; /* Smooth fade in/out */
+  overflow: hidden; /* Hide snowflakes outside card */
+  z-index: 1; /* Above card background, below content */
+}
+
+/* Show snow on hover */
+.service-card:hover .card-snow-container {
+  opacity: 1; /* Make snow visible on hover */
+}
+
+/* Card Snowflakes - Similar to global snow but contained within cards */
+.card-snowflake {
+  position: absolute; /* Absolute positioning for animation */
+  color: var(--dark-purple); /* Dark purple color */
+  text-shadow: 
+    0 0 10px var(--light-purple), /* Outer glow */
+    0 0 5px var(--white), /* Middle glow */
+    0 0 15px var(--primary-purple); /* Extended glow */
+  font-size: 0.8em; /* Smaller than global snowflakes */
+  animation: cardSnowfall linear infinite; /* Continuous falling animation */
+  user-select: none; /* Prevent text selection */
+  pointer-events: none; /* Don't interfere with clicks */
+  will-change: transform, opacity; /* Optimize for animation performance */
+}
+
+/* Card Snowfall Animation - Snowflakes fall within card boundaries */
+@keyframes cardSnowfall {
+  0% {
+    transform: translateY(-20px) rotate(0deg); /* Start above card */
+    opacity: 1; /* Start visible */
+  }
+  100% {
+    transform: translateY(400px) rotate(360deg); /* End below card with rotation */
+    opacity: 0; /* Fade out at bottom */
+  }
+}
+
+/* ==== SERVICE CARD CONTENT ==== */
+/* Styling for content within service cards */
+
+/* Service Icon Container */
+.service-icon {
+  width: 60px; /* Icon container width */
+  height: 60px; /* Icon container height */
+  margin: 0 auto 1.5rem auto; /* Center and add bottom margin */
+  color: var(--primary-purple); /* Purple icon color */
+  transition: var(--transition-fast); /* Smooth color transition */
+  z-index: 2; /* Above snow effect */
+  position: relative; /* For z-index to work */
+}
+
+/* Service Icon SVG Styling */
+.service-icon svg {
+  width: 100%; /* Full container width */
+  height: 100%; /* Full container height */
+  stroke-width: 2; /* Icon stroke width */
+  filter: drop-shadow(0 2px 8px rgba(124, 95, 211, 0.2)); /* Subtle shadow */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Icon hover effects */
+.service-card:hover .service-icon {
+  color: var(--light-purple); /* Lighter purple on hover */
+  transform: scale(1.1) rotate(5deg); /* Scale and slight rotation */
+}
+
+.service-card:hover .service-icon svg {
+  filter: drop-shadow(0 4px 15px rgba(191, 170, 255, 0.4)); /* Enhanced shadow */
+}
+
+/* Service Title */
+.service-title {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1.5rem; /* Title font size */
+  color: var(--primary-purple); /* Purple color */
+  text-align: center; /* Center alignment */
+  margin-bottom: 1rem; /* Bottom margin */
+  font-weight: 600; /* Semi-bold weight */
+  letter-spacing: 0.02em; /* Slight letter spacing */
+  z-index: 2; /* Above snow effect */
+  position: relative; /* For z-index to work */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Title hover effect */
+.service-card:hover .service-title {
+  color: var(--light-purple); /* Lighter purple on hover */
+  text-shadow: 0 2px 10px rgba(191, 170, 255, 0.3); /* Text glow */
+}
+
+/* Service Description */
+.service-description {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 1rem; /* Description font size */
+  color: var(--dark-purple); /* Dark purple color */
+  text-align: center; /* Center alignment */
+  line-height: 1.6; /* Comfortable line height */
+  margin-bottom: 1.5rem; /* Bottom margin */
+  z-index: 2; /* Above snow effect */
+  position: relative; /* For z-index to work */
+}
+
+/* Service Price */
+.service-price {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1.3rem; /* Price font size */
+  color: var(--primary-purple); /* Purple color */
+  text-align: center; /* Center alignment */
+  font-weight: 700; /* Bold weight */
+  margin-bottom: 1.5rem; /* Bottom margin */
+  padding: 0.5rem 1rem; /* Internal padding */
+  background: rgba(191, 170, 255, 0.1); /* Light purple background */
+  border-radius: var(--border-radius-small); /* Rounded corners */
+  border: 1px solid rgba(191, 170, 255, 0.3); /* Purple border */
+  z-index: 2; /* Above snow effect */
+  position: relative; /* For z-index to work */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Price hover effect */
+.service-card:hover .service-price {
+  background: rgba(191, 170, 255, 0.2); /* Darker background on hover */
+  border-color: var(--light-purple); /* Brighter border */
+  transform: scale(1.05); /* Slight scale increase */
+}
+
+/* Service Features List */
+.service-features {
+  list-style: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  z-index: 2; /* Above snow effect */
+  position: relative; /* For z-index to work */
+}
+
+/* Individual Feature Items */
+.service-features li {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 0.9rem; /* Feature font size */
+  color: var(--dark-purple); /* Dark purple color */
+  padding: 0.3rem 0; /* Vertical padding */
+  position: relative; /* For pseudo-element */
+  padding-left: 1.5rem; /* Space for custom bullet */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Custom bullet points for features */
+.service-features li::before {
+  content: '✦'; /* Star bullet character */
+  color: var(--light-purple); /* Purple bullet color */
+  position: absolute; /* Absolute positioning */
+  left: 0; /* Align to left */
+  top: 0.3rem; /* Vertical alignment */
+  font-size: 0.8rem; /* Bullet size */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Feature hover effects */
+.service-card:hover .service-features li::before {
+  color: var(--primary-purple); /* Darker purple on hover */
+  transform: scale(1.2); /* Scale bullet on hover */
+}
+
+/* ==== CALL TO ACTION SECTION ==== */
+/* CTA section at bottom of services */
+
+.cta-section {
+  text-align: center; /* Center alignment */
+  padding: 3rem 2rem; /* Generous padding */
+  background: rgba(248, 249, 250, 0.8); /* Semi-transparent background */
+  border-radius: var(--border-radius); /* Rounded corners */
+  border: 2px solid rgba(191, 170, 255, 0.2); /* Purple border */
+  backdrop-filter: blur(10px); /* Glass-like blur */
+  box-shadow: var(--shadow-medium); /* Medium shadow */
+  margin-top: 2rem; /* Top margin */
+}
+
+/* CTA Title */
+.cta-title {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 2.5rem; /* Large title size */
+  color: var(--primary-purple); /* Purple color */
+  margin-bottom: 1rem; /* Bottom margin */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+/* CTA Description */
+.cta-description {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 1.2rem; /* Description size */
+  color: var(--dark-purple); /* Dark purple color */
+  margin-bottom: 2rem; /* Bottom margin */
+  max-width: 500px; /* Limit width */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block; /* Inline block for padding */
+  padding: 1rem 2.5rem; /* Button padding */
+  background: linear-gradient(135deg, var(--primary-purple), var(--light-purple)); /* Purple gradient */
+  color: var(--white); /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: var(--border-radius-small); /* Rounded corners */
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1.1rem; /* Button font size */
+  font-weight: 600; /* Semi-bold weight */
+  letter-spacing: 0.05em; /* Letter spacing */
+  box-shadow: var(--shadow-medium); /* Medium shadow */
+  transition: var(--transition-bounce); /* Bouncy transition */
+  border: none; /* Remove border */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* CTA Button Hover Effects */
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.05); /* Lift and scale */
+  box-shadow: var(--shadow-heavy); /* Heavier shadow */
+  background: linear-gradient(135deg, var(--light-purple), var(--primary-purple)); /* Reversed gradient */
+  filter: brightness(1.1); /* Slight brightness increase */
+}
+
+/* CTA Button Active State */
+.cta-button:active {
+  transform: translateY(-1px) scale(1.02); /* Less lift when clicked */
+}
+
+/* ==== TESTIMONIALS SECTION ==== */
+/* Testimonials section styling */
+
+.testimonials-section {
+  max-width: var(--max-content-width); /* Maximum width constraint */
+  margin: 0 auto; /* Center the section */
+  padding: 0 2rem; /* Horizontal padding */
+  margin-top: 6rem; /* Top margin for separation */
+}
+
+/* Testimonials Container */
+.testimonials-container {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+  gap: 2rem; /* Gap between testimonials */
+  margin-top: 3rem; /* Top margin */
+}
+
+/* ==== TESTIMONIAL CARD STYLES ==== */
+/* Individual testimonial card styling */
+
+.testimonial-card {
+  background: rgba(248, 249, 250, 0.95); /* Semi-transparent background */
+  border: 2px solid rgba(191, 170, 255, 0.2); /* Purple border */
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 2rem; /* Internal padding */
+  backdrop-filter: blur(10px); /* Glass-like blur */
+  box-shadow: var(--shadow-light); /* Light shadow */
+  transition: var(--transition-smooth); /* Smooth transitions */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Testimonial Card Hover Effects */
+.testimonial-card:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  border-color: var(--light-purple); /* Brighter border */
+  box-shadow: var(--shadow-medium); /* Medium shadow */
+  background: rgba(248, 249, 250, 0.98); /* More opaque background */
+}
+
+/* Quote Icon */
+.quote-icon {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 4rem; /* Large quote size */
+  color: var(--light-purple); /* Purple color */
+  line-height: 1; /* Tight line height */
+  margin-bottom: 1rem; /* Bottom margin */
+  opacity: 0.7; /* Semi-transparent */
+}
+
+/* Testimonial Text */
+.testimonial-text {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 1.1rem; /* Text size */
+  color: var(--dark-purple); /* Dark purple color */
+  line-height: 1.6; /* Comfortable line height */
+  margin-bottom: 2rem; /* Bottom margin */
+  font-style: italic; /* Italic for quote feel */
+}
+
+/* Testimonial Author Section */
+.testimonial-author {
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Vertical alignment */
+  gap: 1rem; /* Gap between elements */
+}
+
+/* Author Name */
+.author-name {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1.2rem; /* Name font size */
+  color: var(--primary-purple); /* Purple color */
+  margin: 0; /* Remove margin */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+/* Author Title/Position */
+.author-title {
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-size: 0.9rem; /* Title font size */
+  color: var(--light-purple); /* Light purple color */
+  margin: 0; /* Remove margin */
+  opacity: 0.8; /* Semi-transparent */
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+/* Responsive adjustments for different screen sizes */
+
+/* Large screens */
+@media (max-width: 1400px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Smaller minimum width */
+  }
+  
+  .section-header .title {
+    font-size: 3rem; /* Smaller title */
+  }
+}
+
+/* Medium screens */
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Even smaller minimum */
+    gap: 1.5rem; /* Smaller gap */
+  }
+  
+  .testimonials-container {
+    grid-template-columns: 1fr; /* Single column for testimonials */
+  }
+  
+  .section-header .title {
+    font-size: 2.5rem; /* Smaller title */
+  }
+  
+  .cta-title {
+    font-size: 2rem; /* Smaller CTA title */
+  }
+}
+
+/* Small screens */
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  
+  .service-card {
+    padding: 1.5rem; /* Less padding */
+  }
+  
+  .section-header .title {
+    font-size: 2rem; /* Mobile title size */
+  }
+  
+  .section-header .subtitle {
+    font-size: 1.2rem; /* Mobile subtitle size */
+  }
+  
+  .main-content {
+    padding-left: 1rem; /* Less horizontal padding */
+    padding-right: 1rem; /* Less horizontal padding */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 600px) {
+  .service-card {
+    padding: 1rem; /* Minimal padding */
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem; /* Less padding */
+  }
+  
+  .cta-section {
+    padding: 2rem 1rem; /* Less padding */
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem; /* Smaller button */
+    font-size: 1rem; /* Smaller font */
+  }
+}

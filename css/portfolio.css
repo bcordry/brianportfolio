@@ -1,364 +1,435 @@
-/* portfolio.css */
+/* ===== PORTFOLIO PAGE SPECIFIC STYLES ===== */
+/* Styles for the portfolio grid and modal system */
 
-/* Root color variables */
-:root {
-  --primary-purple: #7c5fd3;
-  --light-purple: #bfaaff;
-  --dark-purple: #6a4c93;
-  --bg-light: #f8f9fa;
-  --bg-medium: #e6e6fa;
-  --bg-dark: #d1c4e9;
-  --white: #fff;
-}
-
-/* Body styling */
+/* Body Styling - Override default for portfolio page */
 body {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e6e6fa 50%, #d1c4e9 100%);
-  font-family: 'Oswald', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  overflow: hidden;           /* Prevent scrolling on portfolio page */
 }
 
-/* Sticky header styles */
-.sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(248, 249, 250, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(191, 170, 255, 0.2);
-  z-index: 1000;
-  height: 70px;
-  display: flex;
-  align-items: center;
-}
+/* ===== MAIN PORTFOLIO CONTAINER ===== */
+/* Container that holds the entire portfolio grid */
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.nav-logo .logo-link {
-  font-family: 'Ysabeau SC', sans-serif;
-  font-size: 1.8rem;
-  color: var(--primary-purple);
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 32px;
-}
-
-.nav-link {
-  color: var(--primary-purple);
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 400;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--light-purple);
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--light-purple);
-  border-radius: 1px;
-}
-
-/* Main grid fills viewport below header */
 .portfolio-main {
-  width: 100vw;
-  height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 20px;
-  box-sizing: border-box;
+  width: 100vw;               /* Full viewport width */
+  height: 100vh;              /* Full viewport height */
+  display: flex;              /* Flexbox for centering */
+  align-items: center;        /* Center vertically */
+  justify-content: center;    /* Center horizontally */
+  position: relative;         /* Relative positioning for child elements */
+  overflow: hidden;           /* Hide overflow */
+  padding: calc(var(--header-height) + 20px) 20px 20px 20px; /* Top padding for header + extra space */
+  box-sizing: border-box;     /* Include padding in total size */
 }
 
-/* Film reel grid: 5 columns, 4 rows, no gap */
+/* ===== PORTFOLIO GRID SYSTEM ===== */
+/* Film reel style grid: 5 columns, 4 rows, no gaps */
+
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 0;
-  width: 95vw;
-  height: 85vh;
-  max-width: 1400px;
-  max-height: 800px;
-  position: relative;
-  z-index: 2;
+  display: grid;              /* CSS Grid layout */
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+  grid-template-rows: repeat(4, 1fr);    /* 4 equal rows */
+  gap: 0;                     /* No gaps between grid items */
+  width: 95vw;                /* 95% of viewport width */
+  height: calc(100vh - var(--header-height) - 40px); /* Full height minus header and padding */
+  max-width: var(--max-content-width); /* Maximum width constraint */
+  position: relative;         /* Relative positioning */
+  z-index: 2;                 /* Above background elements */
 }
 
-/* All grid items fill their cell, no spacing */
+/* All grid items fill their cell completely */
 .portfolio-grid > * {
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-  min-height: 0;
-  box-sizing: border-box;
+  width: 100%;                /* Full width of grid cell */
+  height: 100%;               /* Full height of grid cell */
+  min-width: 0;               /* Allow shrinking below content size */
+  min-height: 0;              /* Allow shrinking below content size */
+  box-sizing: border-box;     /* Include padding/border in size */
 }
 
-/* Portfolio cards: no border radius, no shadow, flush edges */
+/* ===== PORTFOLIO CARDS ===== */
+/* Individual portfolio item styling */
+
 .portfolio-card, .portfolio-filter-card, .portfolio-blank {
-  aspect-ratio: 1 / 1;
-  background: #fff;
-  border: 1px solid #e6e6fa;
-  border-radius: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  transition: none;
-  position: relative;
+  aspect-ratio: 1 / 1;        /* Square aspect ratio */
+  background: var(--white);   /* White background */
+  border: 1px solid var(--bg-medium); /* Light purple border */
+  border-radius: 0;           /* No border radius for film reel look */
+  overflow: hidden;           /* Hide content overflow */
+  display: flex;              /* Flexbox for centering content */
+  align-items: center;        /* Center content vertically */
+  justify-content: center;    /* Center content horizontally */
+  margin: 0;                  /* No margin */
+  padding: 0;                 /* No padding */
+  transition:
+    opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),    /* Smooth opacity transition */
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);  /* Smooth transform transition */
+  opacity: 1;                 /* Fully visible by default */
+  transform: scale(1);        /* Normal scale by default */
+  will-change: opacity, transform; /* Optimize for animation performance */
+  position: relative;         /* Relative positioning for pseudo-elements */
+  cursor: pointer;            /* Pointer cursor for clickable cards */
 }
 
-/* Blank squares: just a white cell, no content */
+/* Hidden state for filtered cards */
+.portfolio-card.hide {
+  opacity: 0;                 /* Invisible */
+  transform: scale(0.85);     /* Slightly smaller */
+  pointer-events: none;       /* Don't respond to clicks */
+}
+
+/* Blank squares - empty grid cells */
 .portfolio-blank {
-  background: #f8f9fa;
-  border: 1px solid #e6e6fa;
-  pointer-events: none;
+  background: var(--bg-light); /* Light background */
+  border: 1px solid var(--bg-medium); /* Light border */
+  pointer-events: none;       /* Not clickable */
+  cursor: default;            /* Default cursor */
 }
 
-/* Filter card: center filter pills vertically and horizontally */
+/* ===== FILTER CARD STYLING ===== */
+/* Special card containing filter buttons */
+
 .portfolio-filter-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f9fa;
-  border: 1px solid #bfaaff;
-  z-index: 2;
+  display: grid;              /* Grid layout for filter buttons */
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  grid-template-rows: 1fr 1fr;    /* 2 rows */
+  gap: 0.5em;                 /* Small gap between buttons */
+  align-items: center;        /* Center buttons vertically */
+  justify-items: center;      /* Center buttons horizontally */
+  background: var(--bg-light); /* Light background */
+  border: 1px solid var(--light-purple); /* Purple border to distinguish */
+  z-index: 2;                 /* Above other cards */
+  padding: 1em 0.5em;         /* Padding around buttons */
+  cursor: default;            /* Default cursor (not clickable as a whole) */
 }
 
-/* Filter pills: no border radius, stacked vertically */
+/* Filter Button Styling */
 .filter-pill {
-  background: rgba(191, 170, 255, 0.15);
-  color: var(--primary-purple);
-  border: 2px solid rgba(191, 170, 255, 0.3);
-  padding: 0.7em 0;
-  border-radius: 0;
-  font-size: 1.1rem;
-  font-family: 'Oswald', Arial, sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: none;
-  outline: none;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5em;
-  width: 110px;
-  text-align: center;
+  width: 100%;                /* Full width of grid cell */
+  min-width: 0;               /* Allow shrinking */
+  padding: 0.7em 0;           /* Vertical padding */
+  font-size: 1.1rem;          /* Medium font size */
+  border-radius: 999px;       /* Fully rounded (pill shape) */
+  background: rgba(191, 170, 255, 0.15); /* Light purple background */
+  color: var(--primary-purple); /* Purple text */
+  border: 2px solid rgba(191, 170, 255, 0.3); /* Purple border */
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  font-weight: 500;           /* Medium font weight */
+  cursor: pointer;            /* Pointer cursor */
+  transition: var(--transition-fast); /* Fast transition */
+  box-shadow: none;           /* No shadow */
+  outline: none;              /* No outline */
+  letter-spacing: 0.02em;     /* Slight letter spacing */
+  text-align: center;         /* Center text */
+  white-space: nowrap;        /* Don't wrap text */
+  margin: 0;                  /* No margin */
+  display: flex;              /* Flexbox for centering */
+  align-items: center;        /* Center text vertically */
+  justify-content: center;    /* Center text horizontally */
 }
 
 .filter-pill.active,
 .filter-pill:hover {
-  background: linear-gradient(90deg, var(--primary-purple), var(--light-purple));
-  color: #fff;
-  border-color: var(--light-purple);
+  background: linear-gradient(90deg, var(--primary-purple), var(--light-purple)); /* Gradient background */
+  color: var(--white);        /* White text */
+  border-color: var(--light-purple); /* Light purple border */
+  transform: translateY(-1px); /* Slight upward movement */
+  box-shadow: var(--shadow-light); /* Add shadow */
 }
 
-/* Card inner: no border radius, no shadow */
+/* ===== CARD INNER CONTENT ===== */
+/* Content within each portfolio card */
+
 .card-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 0;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  width: 100%;                /* Full width */
+  height: 100%;               /* Full height */
+  border-radius: 0;           /* No border radius */
+  background: transparent;    /* Transparent background */
+  display: flex;              /* Flexbox layout */
+  flex-direction: column;     /* Stack content vertically */
+  align-items: center;        /* Center horizontally */
+  justify-content: center;    /* Center vertically */
+  position: relative;         /* Relative positioning for pseudo-elements */
+  border: none;               /* No border */
+  box-shadow: none;           /* No shadow */
+  padding: 0;                 /* No padding */
+  overflow: hidden;           /* Hide overflow */
 }
 
-/* Card image: fill most of the card, no border radius */
+/* Card Image Styling */
 .card-img {
-  width: 90%;
-  height: 70%;
-  object-fit: cover;
-  border-radius: 0;
-  box-shadow: none;
-  margin-bottom: 0.5em;
+  width: 90%;                 /* 90% of card width */
+  height: 70%;                /* 70% of card height */
+  object-fit: cover;          /* Cover the area while maintaining aspect ratio */
+  border-radius: 0;           /* No border radius */
+  box-shadow: none;           /* No shadow */
+  margin-bottom: 0.5em;       /* Small margin below image */
 }
 
-/* Card info: no border radius, no shadow, tight at bottom */
+/* Card Information Section */
 .card-info {
-  position: absolute;
-  bottom: 0;
-  left: 0; 
-  right: 0;
-  background: rgba(191, 170, 255, 0.10);
-  color: var(--primary-purple);
-  padding: 0.4em 0.5em;
-  text-align: center;
-  border-radius: 0;
-  font-size: 1em;
-  pointer-events: none;
+  position: absolute;         /* Absolute positioning */
+  bottom: 0;                  /* Stick to bottom */
+  left: 0;                    /* Align to left */
+  right: 0;                   /* Align to right */
+  background: rgba(191, 170, 255, 0.10); /* Semi-transparent purple background */
+  color: var(--primary-purple); /* Purple text */
+  padding: 0.4em 0.5em;       /* Padding around text */
+  text-align: center;         /* Center text */
+  border-radius: 0;           /* No border radius */
+  font-size: 1em;             /* Standard font size */
+  pointer-events: none;       /* Don't interfere with card clicks */
 }
 
-/* Card title: no shadow, bold */
+/* Card Title Styling */
 .card-title {
-  font-family: 'Ysabeau SC', sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 0.02em;
-  text-shadow: none;
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1em;             /* Standard font size */
+  font-weight: 700;           /* Bold font weight */
+  margin: 0;                  /* No margin */
+  letter-spacing: 0.02em;     /* Slight letter spacing */
+  text-shadow: none;          /* No text shadow */
 }
 
-/* Remove hover effects for film reel look */
-.portfolio-card:hover .card-inner,
-.portfolio-card:hover .card-img,
-.portfolio-card:hover .card-info {
-  transform: none;
-  box-shadow: none;
-  filter: none;
-  background: rgba(191, 170, 255, 0.10);
-  color: var(--primary-purple);
+/* ===== CARD HOVER EFFECTS ===== */
+/* Glimmer effect on card hover */
+
+.portfolio-card:hover .card-inner::before {
+  content: '';                /* Empty content for pseudo-element */
+  position: absolute;         /* Absolute positioning */
+  top: -50%;                  /* Start above card */
+  left: -60%;                 /* Start to the left */
+  width: 220%;                /* Wide enough to cover card */
+  height: 200%;               /* Tall enough to cover card */
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,           /* Transparent start */
+    rgba(255,255,255,0.7) 45%,       /* Semi-transparent */
+    rgba(255,255,255,0.9) 50%,       /* Peak brightness */
+    rgba(255,255,255,0.7) 55%,       /* Semi-transparent */
+    rgba(255,255,255,0) 100%          /* Transparent end */
+  );
+  pointer-events: none;       /* Don't interfere with clicks */
+  animation: glimmer-move 1.2s cubic-bezier(0.4,0,0.2,1) infinite alternate; /* Glimmer animation */
+  z-index: 0;                 /* Above content, below modal */
 }
 
-/* Parallax background container */
+/* Glimmer Movement Animation */
+@keyframes glimmer-move {
+  0% {
+    left: -60%;               /* Start position */
+  }
+  100% {
+    left: -10%;               /* End position */
+  }
+}
+
+/* ===== PARALLAX BACKGROUND ===== */
+/* Background with parallax effect */
+
 .parallax-bg {
-  position: fixed;
-  top: 0; 
-  left: 0; 
-  width: 100vw; 
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
+  position: fixed;            /* Fixed positioning */
+  top: 0;                     /* Cover from top */
+  left: 0;                    /* Cover from left */
+  width: 100vw;               /* Full viewport width */
+  height: 100vh;              /* Full viewport height */
+  z-index: 0;                 /* Behind all content */
+  pointer-events: none;       /* Don't interfere with interactions */
+  overflow: hidden;           /* Hide overflow */
 }
 
-/* Modal styles (unchanged from your previous version) */
+/* ===== MODAL STYLES ===== */
+/* Modal overlay and content styling */
+
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0; top: 0; right: 0; bottom: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(209, 196, 233, 0.92);
-  backdrop-filter: blur(8px);
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 0.4s ease-out;
+  display: none;              /* Hidden by default */
+  position: fixed;            /* Fixed positioning */
+  z-index: 2000;              /* Very high z-index */
+  left: 0; top: 0; right: 0; bottom: 0; /* Cover entire viewport */
+  width: 100vw; height: 100vh; /* Full viewport dimensions */
+  background: rgba(209, 196, 233, 0.92); /* Semi-transparent purple background */
+  backdrop-filter: blur(8px); /* Blur background */
+  align-items: center;        /* Center vertically */
+  justify-content: center;    /* Center horizontally */
+  animation: fadeIn 0.4s ease-out; /* Fade in animation */
 }
 
 .modal.active {
-  display: flex;
+  display: flex;              /* Show modal */
 }
 
+/* Modal Fade In Animation */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; }        /* Start invisible */
+  to { opacity: 1; }          /* End visible */
 }
 
+/* Modal Backdrop - Clickable area to close modal */
 .modal-backdrop {
-  position: absolute;
-  left: 0; top: 0; right: 0; bottom: 0;
-  width: 100vw; height: 100vh;
-  background: transparent;
-  cursor: pointer;
+  position: absolute;         /* Absolute positioning */
+  left: 0; top: 0; right: 0; bottom: 0; /* Cover entire modal */
+  width: 100vw; height: 100vh; /* Full dimensions */
+  background: transparent;    /* Transparent background */
+  cursor: pointer;            /* Pointer cursor to indicate clickability */
 }
 
+/* Modal Content Panel */
 .modal-content {
-  background: var(--bg-light);
-  border-radius: 22px;
-  padding: 36px 32px 28px 32px;
-  max-width: 600px;
-  width: 90vw;
-  max-height: 80vh;
-  overflow-y: auto;
-  color: var(--primary-purple);
-  box-shadow: 0 12px 48px rgba(191, 170, 255, 0.4);
-  position: relative;
-  animation: modalPop 0.5s cubic-bezier(.4, 2, .6, 1);
-  z-index: 3;
+  background: var(--bg-light); /* Light background */
+  border-radius: 22px;        /* Rounded corners */
+  padding: 36px 32px 28px 32px; /* Padding around content */
+  max-width: 600px;           /* Maximum width */
+  width: 90vw;                /* Responsive width */
+  max-height: 80vh;           /* Maximum height */
+  color: var(--primary-purple); /* Purple text */
+  box-shadow: var(--shadow-heavy); /* Heavy shadow */
+  position: relative;         /* Relative positioning */
+  animation: modalPop 0.5s cubic-bezier(.4, 2, .6, 1); /* Pop-in animation */
+  z-index: 3;                 /* Above backdrop */
+  display: flex;              /* Flexbox layout */
+  flex-direction: column;     /* Stack content vertically */
+  box-sizing: border-box;     /* Include padding in size */
+  overflow: visible;          /* Allow content to be visible */
 }
 
+/* Modal Pop Animation */
 @keyframes modalPop {
   from { 
-    transform: scale(0.8) translateY(60px); 
-    opacity: 0; 
+    transform: scale(0.8) translateY(60px); /* Start smaller and below */
+    opacity: 0;               /* Start invisible */
   }
   to { 
-    transform: scale(1) translateY(0); 
-    opacity: 1; 
+    transform: scale(1) translateY(0); /* End at normal size and position */
+    opacity: 1;               /* End visible */
   }
 }
 
+/* Modal Close Button */
 .modal-close {
-  position: absolute;
-  top: 18px;
-  right: 24px;
-  font-size: 2.2rem;
-  color: var(--primary-purple);
-  background: none;
-  border: none;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-  z-index: 4;
-  line-height: 1;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;         /* Absolute positioning */
+  top: 18px;                  /* Distance from top */
+  right: 24px;                /* Distance from right */
+  font-size: 2.2rem;          /* Large font size */
+  color: var(--primary-purple); /* Purple color */
+  background: none;           /* No background */
+  border: none;               /* No border */
+  cursor: pointer;            /* Pointer cursor */
+  opacity: 0.7;               /* Semi-transparent */
+  transition: opacity 0.2s ease; /* Smooth opacity transition */
+  z-index: 4;                 /* Above modal content */
+  line-height: 1;             /* Tight line height */
+  width: 32px;                /* Fixed width */
+  height: 32px;               /* Fixed height */
+  display: flex;              /* Flexbox for centering */
+  align-items: center;        /* Center vertically */
+  justify-content: center;    /* Center horizontally */
 }
 
 .modal-close:hover {
-  opacity: 1;
+  opacity: 1;                 /* Full opacity on hover */
+  transform: scale(1.1);      /* Slightly larger on hover */
+}
+
+/* Modal Header */
+.modal-header {
+  margin-bottom: 12px;        /* Space below header */
 }
 
 .modal-title {
-  font-family: 'Ysabeau SC', sans-serif;
-  font-size: 1.8rem;
-  color: var(--primary-purple);
-  margin: 0 0 16px 0;
-  text-shadow: 0 2px 8px rgba(191, 170, 255, 0.3);
-  letter-spacing: 0.02em;
+  font-family: 'Ysabeau SC', sans-serif; /* Display font */
+  font-size: 1.8rem;          /* Large font size */
+  color: var(--primary-purple); /* Purple color */
+  margin: 0 0 8px 0;          /* Margin below title */
+  text-shadow: 0 2px 8px rgba(191, 170, 255, 0.3); /* Purple text shadow */
+  letter-spacing: 0.02em;     /* Slight letter spacing */
 }
 
+/* Scrollable Content Area */
+.modal-scroll {
+  flex: 1 1 auto;             /* Flexible sizing */
+  min-height: 0;              /* Allow shrinking */
+  max-height: 55vh;           /* Maximum height */
+  overflow-y: auto;           /* Vertical scrolling */
+  overflow-x: hidden;         /* No horizontal scrolling */
+  box-sizing: border-box;     /* Include padding in size */
+  border-radius: var(--border-radius-small); /* Rounded corners */
+}
+
+/* YouTube iframe styling to match card images */
+.card-video {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  aspect-ratio: 16/9;
+  border-radius: var(--border-radius);
+  background: #000;
+  display: block;
+}
+
+/* Ensure video cards have proper aspect ratio */
+.portfolio-card[data-type="video"] .card-inner {
+  aspect-ratio: 16/9; /* Standard video aspect ratio */
+}
+
+
+/* Custom Scrollbar Styling (Webkit browsers) */
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;                 /* Scrollbar width */
+  background: transparent;    /* Transparent background */
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, var(--light-purple) 0%, var(--primary-purple) 100%); /* Purple gradient */
+  border-radius: 8px;         /* Rounded scrollbar thumb */
+  min-height: 40px;           /* Minimum thumb height */
+  box-shadow: 0 2px 8px rgba(124,95,211,0.12); /* Subtle shadow */
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(120deg, var(--primary-purple) 0%, var(--light-purple) 100%); /* Reversed gradient on hover */
+}
+
+/* Firefox Scrollbar Styling */
+.modal-scroll {
+  scrollbar-width: thin;      /* Thin scrollbar */
+  scrollbar-color: var(--light-purple) var(--bg-light); /* Purple scrollbar on light background */
+}
+
+/* Modal Body Content */
 .modal-body {
-  font-family: 'Oswald', Arial, sans-serif;
-  color: var(--dark-purple);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-family: 'Oswald', Arial, sans-serif; /* Body font */
+  color: var(--dark-purple);  /* Dark purple text */
+  font-size: 1.1rem;          /* Medium font size */
+  line-height: 1.6;           /* Good line height for readability */
+  padding-bottom: 8px;        /* Small padding at bottom */
 }
 
-/* Responsive: stack to 2 columns on mobile */
+/* ===== RESPONSIVE DESIGN ===== */
+/* Responsive adjustments for different screen sizes */
+
+/* Mobile Modal Adjustments */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 24px 10px 20px 10px; /* Less padding on mobile */
+    border-radius: 16px;        /* Smaller border radius */
+    max-width: 98vw;            /* Almost full width */
+  }
+  
+  .modal-title {
+    font-size: 1.3rem;          /* Smaller title */
+  }
+  
+  .modal-scroll {
+    max-height: 40vh;           /* Less height on mobile */
+  }
+}
+
+/* Mobile Grid Adjustments */
 @media (max-width: 900px) {
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    grid-template-rows: repeat(10, 1fr);   /* More rows to accommodate */
+  }
+  
+  .portfolio-main {
+    padding: calc(var(--header-height) + 10px) 10px 10px 10px; /* Less padding */
   }
 }

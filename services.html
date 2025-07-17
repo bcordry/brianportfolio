@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for proper rendering and SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Testimonials - Brian's Portfolio</title>
+    
+    <!-- Google Fonts - Same fonts used across all pages -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+    
+    <!-- Link to shared styles and page-specific styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+    <!-- Snow Effect Container - Consistent across all pages -->
+    <div class="snow-container" id="snow-container"></div>
+    
+    <!-- Sticky Header Navigation - Consistent across all pages -->
+    <header class="sticky-header">
+        <nav class="nav-container">
+            <!-- Logo/Brand -->
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">Brian's Portfolio</a>
+            </div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="work-journey.html" class="nav-link">Experience</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- Services Section -->
+        <section class="services-section">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h1 class="title">Services</h1>
+                <p class="subtitle">Professional web solutions tailored to your needs</p>
+            </div>
+            
+            <!-- Services Grid Container -->
+            <div class="services-grid">
+                <!-- Service Card 1: Custom Websites -->
+                <div class="service-card" data-service="websites">
+                    <!-- Card Snow Container for hover effect -->
+                    <div class="card-snow-container"></div>
+                    
+                    <!-- Service Icon -->
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Service Content -->
+                    <h3 class="service-title">Custom Websites</h3>
+                    <p class="service-description">Unique, personalized websites to market your brand or share your services. Featuring custom photography and videography content, plus ongoing updates and maintenance to keep your audience up to date.</p>
+                    <div class="service-price">Starting at $2,500</div>
+                    
+                    <!-- Service Features List -->
+                    <ul class="service-features">
+                        <li>Responsive design with as much pizzazz as you want</li>
+                        <li>Custom photography & video of your brand</li>
+                        <li>Always bespoke - never made from templates</li>
+                        <li>Ongoing updates: weekly, monthly, or unlimited</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2: SEO Optimization -->
+                <div class="service-card" data-service="seo">
+                    <div class="card-snow-container"></div>
+                    
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="21 21l-4.35-4.35"/>
+                            <path d="11 8a3 3 0 100 6"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="service-title">SEO Optimization</h3>
+                    <p class="service-description">Improve your search engine rankings with comprehensive SEO strategies and ongoing optimization.</p>
+                    <div class="service-price">Starting at $800/month</div>
+                    
+                    <ul class="service-features">
+                        <li>Keyword research</li>
+                        <li>On-page optimization</li>
+                        <li>Performance monitoring</li>
+                        <li>Monthly reports</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3: Branding -->
+                <div class="service-card" data-service="branding">
+                    <div class="card-snow-container"></div>
+                    
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="service-title">Brand Identity</h3>
+                    <p class="service-description">Complete branding and rebranding solutions including logo design, color schemes, and brand guidelines. Stand out from the crowd.</p>
+                    <div class="service-price">Starting at $1,200</div>
+                    
+                    <ul class="service-features">
+                        <li>Logo design: a modern update for your brand.</li>
+                        <li>Color palette to keep consistency</li>
+                        <li>Brand guidelines to help you share your vision</li>
+                        <li>ADD ANOTHER BULLET POINT</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4: Social Media -->
+                <div class="service-card" data-service="social">
+                    <div class="card-snow-container"></div>
+                    
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="service-title">Social Media Management</h3>
+                    <p class="service-description">Strategic social media posting and content creation to grow your online presence.</p>
+                    <div class="service-price">Starting at $600/month</div>
+                    
+                    <ul class="service-features">
+                        <li>Content creation handled by an experienced and popular guru</li>
+                        <li>Posting schedule to keep updates in your customers' feeds</li>
+                        <li>Engagement tracking: month-by-month reports to check trends</li>
+                        <li>Strategy development: try something new to engage your fans</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 5: Video Editing -->
+                <div class="service-card" data-service="video">
+                    <div class="card-snow-container"></div>
+                    
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="23 7 16 12 23 17 23 7"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="service-title">Video Editing</h3>
+                    <p class="service-description">Professional video editing for marketing content, tutorials, and promotional materials.</p>
+                    <div class="service-price">Starting at $150/video</div>
+                    
+                    <ul class="service-features">
+                        <li>Professional editing</li>
+                        <li>Closed Captioning and other accessibility features</li>
+                        <li>Audio enhancement</li>
+                        <li>Motion graphics and professional lower thirds</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 6: Project Management -->
+                <div class="service-card" data-service="management">
+                    <div class="card-snow-container"></div>
+                    
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h4a2 2 0 002-2v-7a2 2 0 00-2-2zM19 4h-4a2 2 0 00-2 2v14a2 2 0 002 2h4a2 2 0 002-2V6a2 2 0 00-2-2z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="service-title">Project Management</h3>
+                    <p class="service-description">End-to-end project coordination for complex web development and digital marketing initiatives.</p>
+                    <div class="service-price">Starting at $1,000/project</div>
+                    
+                    <ul class="service-features">
+                        <li>Timeline management</li>
+                        <li>Team coordination</li>
+                        <li>Progress tracking</li>
+                        <li>Quality assurance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to get started?</h2>
+                <p class="cta-description">Contact me for a custom quote tailored to your specific needs</p>
+                <a href="contact.html" class="cta-button">Get Custom Quote</a>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="title">What Clients Say</h2>
+                <p class="subtitle">Real feedback from satisfied customers</p>
+            </div>
+            
+            <!-- Testimonials Container -->
+            <div class="testimonials-container">
+                <!-- Testimonial Card 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Brian created an absolutely stunning website for our restaurant. The photography integration and smooth animations really set us apart from competitors. Our online orders increased by 40% in the first month!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah Martinez</h4>
+                            <p class="author-title">Owner, Bella Vista Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">The SEO work Brian did for our law firm was exceptional. We went from page 3 to the top 3 results for our main keywords within 6 months. His monthly reports are detailed and easy to understand.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 class="author-name">Michael Chen</h4>
+                            <p class="author-title">Partner, Chen & Associates Law</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">Brian's branding work transformed our entire business identity. The logo, color scheme, and brand guidelines he created perfectly capture our company's vision. Highly recommended!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 class="author-name">Jennifer Walsh</h4>
+                            <p class="author-title">CEO, TechStart Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript for animations and effects -->
+    <script src="js/services.js"></script>
+</body>
+</html>

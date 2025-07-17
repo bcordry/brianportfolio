@@ -1,0 +1,582 @@
+/* Contact page specific styles with tasteful effects and animations */
+
+/* Main contact container with proper spacing */
+.contact-main {
+  min-height: 100vh; /* Full viewport height minimum */
+  padding: 120px 2rem 4rem; /* Top padding accounts for sticky header */
+  max-width: 1400px; /* Maximum content width */
+  margin: 0 auto; /* Center the content */
+  position: relative; /* For absolute positioning of child elements */
+  z-index: 2; /* Above background elements */
+}
+
+/* Page header styling with centered text */
+.page-header {
+  text-align: center; /* Center align all header text */
+  margin-bottom: 0rem; /* Space below header */
+  opacity: 0; /* Start invisible for animation */
+  animation: fadeInUp 1s ease-out 0.3s forwards; /* Fade in animation */
+}
+
+/* Main page title with gradient text effect */
+.page-title {
+  font-family: 'Ysabeau SC', serif; /* Title font family */
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive font size */
+  font-weight: 600; /* Semi-bold weight */
+  margin-bottom: 0rem; /* Space below title */
+  background: linear-gradient(90deg, #7c5fd3 0%, #7c5fd3 100%);
+  -webkit-background-clip: text; /* Clip background to text */
+  -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+  background-clip: text; /* Standard property */
+  position: relative; /* For pseudo-element positioning */
+}
+
+/* Animated underline effect for page title */
+.page-title::after {
+  content: ''; /* Empty pseudo-element */
+  position: absolute; /* Position relative to title */
+  bottom: -10px; /* Position below text */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center transform */
+  width: 0; /* Start with no width */
+  height: 3px; /* Underline thickness */
+  background: linear-gradient(90deg, #7c5fd3, #a855f7); /* Gradient underline */
+  border-radius: 2px; /* Rounded ends */
+  animation: expandWidth 1s ease-out 1s forwards; /* Expand animation */
+}
+
+/* Page subtitle styling */
+.page-subtitle {
+  font-family: 'Oswald', sans-serif; /* Body font family */
+  font-size: 1.2rem; /* Subtitle font size */
+  color: #7c5fd3; /* Semi-transparent white */
+  font-weight: 300; /* Light weight */
+  letter-spacing: 0.5px; /* Slight letter spacing */
+}
+
+/* Main contact grid layout */
+.contact-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: 1fr 2fr; /* Profile card smaller, info larger */
+  grid-template-rows: auto auto; /* Two rows */
+  gap: 3rem; /* Space between grid items */
+  align-items: start; /* Align items to top */
+}
+
+/* Profile card container with special positioning */
+.profile-card {
+  grid-row: 1 / 3; /* Span both rows */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  opacity: 0; /* Start invisible */
+  animation: fadeInLeft 1s ease-out 0.6s forwards; /* Slide in from left */
+}
+
+/* Profile image container with animated rings */
+.profile-image-container {
+  position: relative; /* For absolute positioning of rings */
+  width: 300px; /* Fixed container width */
+  height: 300px; /* Fixed container height */
+}
+
+/* Animated rings around profile image */
+.profile-ring {
+  position: absolute; /* Position relative to container */
+  border-radius: 50%; /* Perfect circle */
+  border: 2px solid rgba(124, 95, 211, 0.3); /* Semi-transparent purple border */
+  animation: pulseRing 3s ease-in-out infinite; /* Continuous pulse animation */
+}
+
+/* First ring sizing and animation delay */
+.ring-1 {
+  width: 100%; /* Full container width */
+  height: 100%; /* Full container height */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  animation-delay: 0s; /* No delay */
+}
+
+/* Second ring sizing and animation delay */
+.ring-2 {
+  width: 120%; /* Larger than container */
+  height: 120%; /* Larger than container */
+  top: -10%; /* Offset upward */
+  left: -10%; /* Offset leftward */
+  animation-delay: 1s; /* 1 second delay */
+}
+
+/* Third ring sizing and animation delay */
+.ring-3 {
+  width: 140%; /* Largest ring */
+  height: 140%; /* Largest ring */
+  top: -20%; /* Offset upward more */
+  left: -20%; /* Offset leftward more */
+  animation-delay: 2s; /* 2 second delay */
+}
+
+/* Profile image wrapper */
+.profile-image {
+  position: relative; /* For z-index stacking */
+  z-index: 2; /* Above rings */
+  width: 100%; /* Full container width */
+  height: 100%; /* Full container height */
+  border-radius: 50%; /* Perfect circle */
+  overflow: hidden; /* Hide overflow */
+  border: 4px solid rgba(124, 95, 211, 0.5); /* Purple border */
+  box-shadow: 0 20px 40px rgba(124, 95, 211, 0.3); /* Purple shadow */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Profile image hover effect */
+.profile-image:hover {
+  transform: scale(1.05); /* Slight scale up */
+  box-shadow: 0 25px 50px rgba(124, 95, 211, 0.4); /* Stronger shadow */
+}
+
+/* Actual profile image styling */
+.profile-img {
+  width: 100%; /* Full container width */
+  height: 100%; /* Full container height */
+  object-fit: cover; /* Cover container while maintaining aspect ratio */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Contact information grid layout */
+.contact-info-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 1.5rem; /* Space between cards */
+  opacity: 0; /* Start invisible */
+  animation: fadeInRight 1s ease-out 0.9s forwards; /* Slide in from right */
+}
+
+/* Individual contact card styling */
+.contact-card {
+  background: rgba(255, 255, 255, 0.05); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  border-radius: 16px; /* Rounded corners */
+  padding: 2rem; /* Internal spacing */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center items vertically */
+  gap: 1.5rem; /* Space between icon and content */
+  transition: all 0.3s ease; /* Smooth transitions */
+  position: relative; /* For pseudo-element positioning */
+  overflow: hidden; /* Hide overflow for effects */
+}
+
+/* Contact card hover effect */
+.contact-card:hover {
+  transform: translateY(-5px); /* Lift up slightly */
+  background: rgba(255, 255, 255, 0.08); /* Slightly more opaque */
+  border-color: rgba(124, 95, 211, 0.3); /* Purple border on hover */
+  box-shadow: 0 20px 40px rgba(124, 95, 211, 0.2); /* Purple shadow */
+}
+
+/* Animated background effect on hover */
+.contact-card::before {
+  content: ''; /* Empty pseudo-element */
+  position: absolute; /* Position relative to card */
+  top: 0; /* Align to top */
+  left: -100%; /* Start off-screen left */
+  width: 100%; /* Full card width */
+  height: 100%; /* Full card height */
+  background: linear-gradient(90deg, transparent, rgba(124, 95, 211, 0.1), transparent); /* Moving gradient */
+  transition: left 0.5s ease; /* Smooth movement */
+}
+
+/* Trigger background animation on hover */
+.contact-card:hover::before {
+  left: 100%; /* Move across card */
+}
+
+/* Card icon container */
+.card-icon {
+  width: 50px; /* Fixed icon width */
+  height: 50px; /* Fixed icon height */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background: rgba(124, 95, 211, 0.2); /* Purple background */
+  border-radius: 12px; /* Rounded corners */
+  color: #7c5fd3; /* Purple icon color */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Card icon hover effect */
+.contact-card:hover .card-icon {
+  background: rgba(124, 95, 211, 0.3); /* More opaque on hover */
+  transform: scale(1.1); /* Slight scale up */
+}
+
+/* SVG icons within card icons */
+.card-icon svg {
+  width: 24px; /* Icon width */
+  height: 24px; /* Icon height */
+}
+
+/* Card content area */
+.card-content {
+  flex: 1; /* Take remaining space */
+}
+
+/* Card title styling */
+.card-title {
+  font-family: 'Ysabeau SC', serif; /* Title font */
+  font-size: 1.1rem; /* Title font size */
+  font-weight: 500; /* Medium weight */
+  color: #6a4c93; /* purple  text */
+  margin-bottom: 0.5rem; /* Space below title */
+}
+
+/* Contact link styling */
+.contact-link {
+  color: #7c5fd3; /* Semi-transparent white */
+  text-decoration: none; /* Remove underline */
+  font-family: 'Oswald', sans-serif; /* Body font */
+  font-size: 1rem; /* Link font size */
+  transition: all 0.3s ease; /* Smooth transitions */
+  border: none; /* Remove button border */
+  background: none; /* Remove button background */
+  cursor: pointer; /* Pointer cursor */
+  padding: 0; /* Remove button padding */
+}
+
+/* Contact link hover effect */
+.contact-link:hover {
+  color: #7c5fd3; /* Purple on hover */
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5); /* Purple glow */
+}
+
+/* Contact text (non-link) styling */
+.contact-text {
+  color: #7c5fd3; /* Semi-transparent white */
+  font-family: 'Oswald', sans-serif; /* Body font */
+  font-size: 1rem; /* Text font size */
+}
+
+/* Phone reveal button specific styling */
+.phone-link {
+  display: block; /* Block display */
+  text-align: left; /* Left align text */
+  width: 100%; /* Full width */
+}
+
+/* Status indicator container */
+.status-indicator {
+  position: relative; /* For absolute positioning */
+  width: 24px; /* Indicator width */
+  height: 24px; /* Indicator height */
+}
+
+/* Status dot (green indicator) */
+.status-dot {
+  width: 12px; /* Dot width */
+  height: 12px; /* Dot height */
+  background: #10b981; /* Green color */
+  border-radius: 50%; /* Perfect circle */
+  position: absolute; /* Position relative to container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  z-index: 2; /* Above pulse */
+}
+
+/* Animated pulse around status dot */
+.status-pulse {
+  width: 24px; /* Pulse width */
+  height: 24px; /* Pulse height */
+  background: rgba(16, 185, 129, 0.3); /* Semi-transparent green */
+  border-radius: 50%; /* Perfect circle */
+  position: absolute; /* Position relative to container */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center transform */
+  animation: statusPulse 2s ease-in-out infinite; /* Continuous pulse */
+}
+
+/* Call-to-action section */
+.cta-section {
+  grid-column: 1 / -1; /* Span all columns */
+  text-align: center; /* Center align text */
+  margin-top: 2rem; /* Space above section */
+  opacity: 0; /* Start invisible */
+  animation: fadeInUp 1s ease-out 1.2s forwards; /* Fade in animation */
+}
+
+/* CTA title styling */
+.cta-title {
+  font-family: 'Ysabeau SC', serif; /* Title font */
+  font-size: 2rem; /* Large font size */
+  font-weight: 500; /* Medium weight */
+  color: #7c5fd3; /* White text */
+  margin-bottom: 1rem; /* Space below title */
+}
+
+/* CTA description styling */
+.cta-description {
+  font-family: 'Oswald', sans-serif; /* Body font */
+  font-size: 1.1rem; /* Description font size */
+  color: #bfaaff; /* Semi-transparent white */
+  max-width: 600px; /* Maximum width */
+  margin: 0 auto 2rem; /* Center and add bottom margin */
+  line-height: 1.6; /* Comfortable line height */
+}
+
+/* Animated CTA button */
+.cta-button {
+  display: inline-block; /* Inline block for sizing */
+  padding: 1rem 2.5rem; /* Button padding */
+  background: linear-gradient(135deg, #7c5fd3, #bfaaff); /* Purple gradient */
+  color: #ffffff; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 50px; /* Pill shape */
+  font-family: 'Oswald', sans-serif; /* Body font */
+  font-size: 1.1rem; /* Button font size */
+  font-weight: 500; /* Medium weight */
+  letter-spacing: 0.5px; /* Slight letter spacing */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow */
+  transition: all 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 10px 30px rgba(124, 95, 211, 0.3); /* Purple shadow */
+}
+
+/* CTA button hover effect */
+.cta-button:hover {
+  transform: translateY(-3px); /* Lift up */
+  box-shadow: 0 15px 40px rgba(124, 95, 211, 0.4); /* Stronger shadow */
+}
+
+/* Button text wrapper */
+.button-text {
+  position: relative; /* For z-index stacking */
+  z-index: 2; /* Above particles */
+}
+
+/* Animated particles effect in button */
+.button-particles {
+  position: absolute; /* Position relative to button */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  width: 100%; /* Full button width */
+  height: 100%; /* Full button height */
+  pointer-events: none; /* Don't interfere with clicks */
+}
+
+/* Create particle effect with pseudo-elements */
+.button-particles::before,
+.button-particles::after {
+  content: ''; /* Empty pseudo-elements */
+  position: absolute; /* Position within particles container */
+  width: 6px; /* Particle width */
+  height: 6px; /* Particle height */
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  border-radius: 50%; /* Perfect circle */
+  animation: floatParticles 3s ease-in-out infinite; /* Floating animation */
+}
+
+/* First particle positioning and delay */
+.button-particles::before {
+  top: 20%; /* Position from top */
+  left: 20%; /* Position from left */
+  animation-delay: 0s; /* No delay */
+}
+
+/* Second particle positioning and delay */
+.button-particles::after {
+  top: 60%; /* Position from top */
+  right: 20%; /* Position from right */
+  animation-delay: 1.5s; /* Delay for staggered effect */
+}
+
+.profile-speech-bubble {
+  position: absolute;
+  left: 50%;
+  top: -30px;
+  transform: translateX(-50%) translateY(-100%);
+  background: rgba(40, 32, 70, 0.95);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  padding: 0.9em 1.3em;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(124,95,211,0.18);
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.profile-speech-bubble.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-120%);
+}
+.profile-speech-bubble::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-width: 8px 10px 0 10px;
+  border-style: solid;
+  border-color: rgba(40, 32, 70, 0.95) transparent transparent transparent;
+}
+
+
+
+.profile-image.profile-pulse {
+  animation: profilePulse 0.6s cubic-bezier(.4,2,.6,1) 1;
+  box-shadow: 0 0 40px 10px #7c5fd3, 0 0 80px 20px #a084e8;
+}
+@keyframes profilePulse {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.12); }
+  60% { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+/* Keyframe animations */
+
+/* Fade in and slide up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateY(30px); /* Start below */
+  }
+  to {
+    opacity: 1; /* End visible */
+    transform: translateY(0); /* End in position */
+  }
+}
+
+/* Fade in and slide from left animation */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateX(-30px); /* Start left */
+  }
+  to {
+    opacity: 1; /* End visible */
+    transform: translateX(0); /* End in position */
+  }
+}
+
+/* Fade in and slide from right animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateX(30px); /* Start right */
+  }
+  to {
+    opacity: 1; /* End visible */
+    transform: translateX(0); /* End in position */
+  }
+}
+
+/* Expanding width animation for underline */
+@keyframes expandWidth {
+  from {
+    width: 0; /* Start with no width */
+  }
+  to {
+    width: 80px; /* End with fixed width */
+  }
+}
+
+/* Pulsing ring animation */
+@keyframes pulseRing {
+  0%, 100% {
+    transform: scale(1); /* Normal size */
+    opacity: 0.3; /* Semi-transparent */
+  }
+  50% {
+    transform: scale(1.1); /* Slightly larger */
+    opacity: 0.1; /* More transparent */
+  }
+}
+
+/* Status pulse animation */
+@keyframes statusPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1); /* Normal size */
+    opacity: 0.3; /* Semi-transparent */
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5); /* Larger */
+    opacity: 0; /* Fully transparent */
+  }
+}
+
+/* Floating particles animation */
+@keyframes floatParticles {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg); /* Start position */
+    opacity: 0.6; /* Semi-transparent */
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg); /* Float up and rotate */
+    opacity: 1; /* Fully opaque */
+  }
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+  .contact-main {
+    padding: 100px 1rem 2rem; /* Reduced padding */
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr; /* Single column */
+    gap: 2rem; /* Reduced gap */
+  }
+  
+  .profile-card {
+    grid-row: auto; /* Reset row span */
+    margin-bottom: 1rem; /* Add bottom margin */
+  }
+  
+  .profile-image-container {
+    width: 200px; /* Smaller profile image */
+    height: 200px; /* Smaller profile image */
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  
+  .page-title {
+    font-size: 2.5rem; /* Smaller title */
+  }
+  
+  .cta-title {
+    font-size: 1.5rem; /* Smaller CTA title */
+  }
+}
+
+/* Responsive design for mobile phones */
+@media (max-width: 480px) {
+  .contact-main {
+    padding: 80px 1rem 2rem; /* Further reduced padding */
+  }
+  
+  .contact-card {
+    padding: 1.5rem; /* Reduced card padding */
+    flex-direction: column; /* Stack icon and content */
+    text-align: center; /* Center align text */
+    gap: 1rem; /* Reduced gap */
+  }
+  
+  .page-title {
+    font-size: 2rem; /* Even smaller title */
+  }
+  
+  .cta-button {
+    padding: 0.8rem 2rem; /* Smaller button padding */
+    font-size: 1rem; /* Smaller button text */
+  }
+}

@@ -196,11 +196,11 @@ function openLocationModal(location, city, stateOrCountry) {
             role: 'Team Owner',
             company: 'Winterfox, Evil Geniuses, Velocity eSports',
             duration: '2013-2016',
-            description: 'Organized and managed a professional esports team featuring international and local players competing in the premier esports league, overseeing contract negotiations, sponsorships, payroll, and day-to-day team logistics. Led the team to improved records season-over-season and established a strong online presence.',
+            description: 'Founded and managed a professional esports team featuring international and local players competing in the premier esports league (League Championship Series), overseeing contract negotiations, sponsorships, payroll, P-1 Visas, and day-to-day team logistics. Led the team to improved records season-over-season and established a strong online presence.',
             images: [
-                "assets/images/portraits/brian-red-rocks.jpg",
-                "https://via.placeholder.com/400x300/bfaaff/ffff?text=Placeholder+Image+2",
-                "https://via.placeholder.com/400x300/e6e6fa/7c5fd3?text=Placeholder+Image+3"
+                "assets/images/portraits/brian-winterfox-onstage-coach.jpg",
+                "assets/images/portraits/winterfox-vs-cloud9.jpg",
+                "assets/images/portraits/winterfox-victory-shot.jpg"
             ]
         },
         'las-vegas': {
@@ -215,7 +215,7 @@ function openLocationModal(location, city, stateOrCountry) {
             ]
         },
         'denver': {
-            role: 'Project Manager, Frontend Developer',
+            role: 'Project Manager',
             company: 'Esports Entertainment Group, EGL',
             duration: '2019-2024',
             description: 'Managed multiple projects including website development, community engagement initiatives, and esports events. Traveled nation-wide to oversee events and manage logistics. Played a key role in expanding the company\'s reach in the esports industry, particularly in partnerships with traditional sports teams.',
@@ -229,11 +229,11 @@ function openLocationModal(location, city, stateOrCountry) {
             role: 'Team Owner, Digital Producer, Content Manager',
             company: 'Winterfox',
             duration: '2015-2017',
-            description: 'Handled international player recruitment and visa management, extremely unique sponsorship integrations, and the development of one of the first documentary-style content series in esports. Managed team operations, content production, and community engagement, leading to a significant increase in fanbase and sponsorships. Traveled with the team to multiple international tournaments.',
+            description: 'Handled international player recruitment and visa management, extremely unique sponsorship integrations, and the development of one of the first documentary-style content series in esports. Managed team operations, content production, and community engagement for multiple divisions, leading to a significant increase in fanbase and sponsorships. Traveled with the team to multiple international tournaments.',
             images: [
-                "https://via.placeholder.com/400x300/7c5fd3/ffff?text=Chicago+Image+1",
-                "https://via.placeholder.com/400x300/bfaaff/ffff?text=Chicago+Image+2",
-                "https://via.placeholder.com/400x300/e6e6fa/7c5fd3?text=Chicago+Image+3"
+                "assets/images/portraits/winterfox-chicago-office-1.jpg",
+                "assets/images/portraits/winterfox-in-chicago.jpg",
+                "assets/images/portraits/winterfox-chicago-office-2.jpg"
             ]
         },
         'jolly-harbour': {
