@@ -157,32 +157,34 @@ html, body {
   overflow: hidden;          /* Hide snowflakes outside viewport */
 }
 
-.snowflake {
-  position: absolute;        /* Absolute positioning for animation */
-  color: var(--dark-purple); /* Dark purple color for snowflakes */
-  text-shadow: 
-    0 0 20px var(--light-purple),  /* Outer glow */
-    0 0 10px var(--white),          /* Middle glow */
-    0 0 30px var(--primary-purple), /* Extended glow */
-    0 0 5px #000;                   /* Subtle outline for definition */
-  font-size: 1.2em;         /* Base size for snowflakes */
-  animation: snowfall linear infinite; /* Continuous falling animation */
-  user-select: none;         /* Prevent text selection */
-  pointer-events: none;      /* Don't interfere with clicks */
-  will-change: transform, opacity; /* Optimize for animation performance */
+/* Updated snow dot styling */
+.snow-dot {
+  position: absolute;
+  width: 5px; /* Slightly larger */
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.95; /* More visible */
+  pointer-events: none;
+  z-index: 1000;
+  /* Soft drop shadow and purple glow */
+  box-shadow:
+    0 0 8px 2px rgba(89, 50, 207, 0.85),   /* Subtle purple glow */
+    0 2px 8px 0 rgba(0,0,0,0.13),           /* Soft drop shadow */
+    0 0 12px 3px rgba(255,255,255,0.25);    /* White outer glow */
+  animation: snowfall 16s linear infinite;
 }
 
-/* Snowfall Animation - Snowflakes fall from top to bottom with rotation */
 @keyframes snowfall {
   0% {
-    transform: translateY(-100vh) rotate(0deg); /* Start above viewport */
-    opacity: 1;                                 /* Start visible */
+    transform: translateY(-100vh) translateX(0);
   }
   100% {
-    transform: translateY(100vh) rotate(360deg); /* End below viewport with full rotation */
-    opacity: 0;                                  /* Fade out at bottom */
+    transform: translateY(100vh) translateX(20px);
   }
 }
+
+
 
 /* ===== UNIFIED TYPOGRAPHY STYLES ===== */
 /* Consistent text styling across all pages */

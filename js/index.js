@@ -75,37 +75,73 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Purple snow effect function
+// Purple snow effect function - Updated for subtle dots
 function createSnowEffect() {
   const snowContainer = document.getElementById('snow-container');
   if (!snowContainer) return; // Exit if container doesn't exist
   
-  const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '❋']; // Different snowflake characters
+  const SNOW_DOT_COUNT = 0; // Reduced from 40 for subtlety
+  const snowDots = []; // Store snow dot elements
   
-  // Create initial batch of snowflakes
-  for (let i = 0; i < 40; i++) {
-    setTimeout(() => createSnowflake(), i * 80); // Stagger initial snowflakes
+  // Create initial batch of snow dots
+  for (let i = 0; i < SNOW_DOT_COUNT; i++) {
+    setTimeout(() => createSnowDot(), i * 120); // Slightly slower stagger
   }
   
-  // Continue creating snowflakes at regular intervals
-  setInterval(createSnowflake, 250);
+  // Continue creating snow dots at intervals
+  setInterval(createSnowDot, 400); // Less frequent creation
   
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake'; // Apply snowflake CSS class
-    snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)]; // Random character
-    snowflake.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-    snowflake.style.fontSize = (Math.random() * 1.8 + 1.2) + 'em'; // Random size (1.2em to 3em)
-    snowflake.style.animationDuration = (Math.random() * 6 + 6) + 's'; // Random fall speed (6-12s)
-    snowflake.style.animationDelay = '0s'; // Start immediately
-    snowflake.style.opacity = Math.random() * 0.4 + 0.7; // Random opacity (0.7 to 1.1)
-    snowContainer.appendChild(snowflake); // Add to container
+  function createSnowDot() {
+    const dot = document.createElement('div');
+    dot.className = 'snow-dot'; // New CSS class for dots
     
-    // Remove snowflake after animation completes to prevent memory leaks
+    // Random horizontal position
+    dot.style.left = Math.random() * 100 + 'vw';
+    dot.style.top = -5 + 'vh'; // Start above viewport
+    
+    // Random animation duration (longer = slower)
+    dot.dataset.duration = 16 + Math.random() * 6; // 8-14 seconds
+    
+    // Random horizontal drift
+    dot.dataset.drift = (Math.random() - 0.5) * 1.5; // -0.75 to 0.75
+    
+    snowContainer.appendChild(dot);
+    snowDots.push(dot);
+    
+    // Remove dot after animation completes
     setTimeout(() => {
-      if (snowflake.parentNode) {
-        snowflake.parentNode.removeChild(snowflake);
+      if (dot.parentNode) {
+        dot.parentNode.removeChild(dot);
       }
-    }, 12000); // Remove after 14 seconds
+    }, 10000); // Remove after 16 seconds
   }
+  
+  // Animate snow dots
+  function animateSnow() {
+    snowDots.forEach(dot => {
+      if (!dot.parentNode) return; // Skip if removed
+      
+      // Get current positions
+      let top = parseFloat(dot.style.top) || -5;
+      let left = parseFloat(dot.style.left) || 0;
+      
+      // Move down based on duration
+      top += 0.4 * (14 / parseFloat(dot.dataset.duration)); // Adjust speed
+      
+      // Drift horizontally
+      left += parseFloat(dot.dataset.drift) * 0.08;
+      
+      // Update positions
+      dot.style.top = top + 'vh';
+      dot.style.left = left + 'vw';
+      
+      // If below viewport, reset to top
+      if (top > 105) {
+        dot.style.top = -5 + 'vh';
+        dot.style.left = Math.random() * 100 + 'vw';
+      }
+    });
+    requestAnimationFrame(animateSnow);
+  }
+  animateSnow();
 }

@@ -18,49 +18,44 @@ document.addEventListener('DOMContentLoaded', function () {
   initializeCardClickHandlers();
 });
 
-// Snow effect function (copied from index.js for consistency)
+// Snow effect function (updated for subtle dots)
 function createSnowEffect() {
   const snowContainer = document.getElementById('snow-container');
   if (!snowContainer) return;
   
-  // Array of snowflake characters
-  const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '❋'];
+  const SNOW_DOT_COUNT = 15; // Reduced count
   
-  // Create initial batch of snowflakes
-  for (let i = 0; i < 40; i++) {
-    setTimeout(() => createSnowflake(), i * 80);
+  // Create initial batch of snow dots
+  for (let i = 0; i < SNOW_DOT_COUNT; i++) {
+    setTimeout(() => createSnowDot(), i * 150);
   }
   
-  // Continue creating snowflakes at intervals
-  setInterval(createSnowflake, 250);
+  // Continue creating snow dots at intervals
+  setInterval(createSnowDot, 500);
   
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake';
-    snowflake.innerHTML = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
+  function createSnowDot() {
+    const dot = document.createElement('div');
+    dot.className = 'snow-dot'; // New CSS class
     
     // Random horizontal position
-    snowflake.style.left = Math.random() * 100 + 'vw';
+    dot.style.left = Math.random() * 100 + 'vw';
     
-    // Random size (bigger snowflakes)
-    snowflake.style.fontSize = (Math.random() * 1.8 + 1.2) + 'em';
+    // Random fall duration (slower)
+    dot.style.animationDuration = (Math.random() * 8 + 8) + 's'; // 8-16 seconds
+    dot.style.animationDelay = '0s';
     
-    // Random fall duration
-    snowflake.style.animationDuration = (Math.random() * 6 + 6) + 's';
-    snowflake.style.animationDelay = '0s';
-    
-    // Random opacity (more opaque)
-    snowflake.style.opacity = Math.random() * 0.4 + 0.7;
+    // Random opacity (more subtle)
+    dot.style.opacity = Math.random() * 0.3 + 0.6; // 0.6 to 0.9
     
     // Add to container
-    snowContainer.appendChild(snowflake);
+    snowContainer.appendChild(dot);
     
     // Remove after animation completes
     setTimeout(() => {
-      if (snowflake.parentNode) {
-        snowflake.parentNode.removeChild(snowflake);
+      if (dot.parentNode) {
+        dot.parentNode.removeChild(dot);
       }
-    }, 14000);
+    }, 18000);
   }
 }
 
@@ -222,7 +217,7 @@ function initializeCardClickHandlers() {
       description: 'A redesign and frontend development project for EGL\'s competitive gaming platform. Built with modern web technologies to create an engaging user experience for gamers.',
       tech: 'HTML5, CSS3, JavaScript, Responsive Design',
       year: '2024',
-      link: null
+      link: 'https://egl.tv/summer-showdown'
     },
     'Winterfox Redesign': {
       description: 'A full redesign of an esports organization website. I collaborated on visual design and layout, helping the brand look cleaner and more professional.',

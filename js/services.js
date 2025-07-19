@@ -10,35 +10,26 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTitleAnimations();
 });
 
-/* ==== GLOBAL SNOW EFFECT ==== */
-/* Creates the background snow effect consistent with other pages */
-
 function initializeSnowEffect() {
     const snowContainer = document.getElementById('snow-container');
-    const snowflakeSymbols = ['❄', '❅', '❆', '✦', '✧', '✩']; // Array of snowflake characters
-    const maxSnowflakes = 50; // Maximum number of snowflakes on screen
+    const maxSnowflakes = 15; // Reduced from 50
     
-    // Function to create a single snowflake
+    // Function to create a single snow dot
     function createSnowflake() {
         const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake'; // Apply snowflake CSS class
-        snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)]; // Random symbol
+        snowflake.className = 'snow-dot'; // Changed to snow-dot class
         
         // Random horizontal position across viewport width
         snowflake.style.left = Math.random() * 100 + 'vw';
         
-        // Random animation duration between 8-15 seconds
-        snowflake.style.animationDuration = (Math.random() * 7 + 8) + 's';
+        // Random animation duration between 10-16 seconds (slower)
+        snowflake.style.animationDuration = (Math.random() * 6 + 10) + 's';
         
-        // Random delay before animation starts (0-5 seconds)
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        
-        // Random size variation (0.8x to 1.4x base size)
-        const scale = Math.random() * 0.6 + 0.8;
-        snowflake.style.transform = `scale(${scale})`;
+        // Random delay before animation starts (0-3 seconds)
+        snowflake.style.animationDelay = Math.random() * 3 + 's';
         
         // Random opacity for depth effect
-        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+        snowflake.style.opacity = Math.random() * 0.4 + 0.5; // 0.5 to 0.9
         
         // Add to snow container
         snowContainer.appendChild(snowflake);
@@ -48,16 +39,16 @@ function initializeSnowEffect() {
             if (snowflake.parentNode) {
                 snowflake.parentNode.removeChild(snowflake);
             }
-        }, 20000); // Remove after 20 seconds (longer than max animation duration)
+        }, 18000); // Remove after 22 seconds (longer than max animation duration)
     }
     
     // Create initial batch of snowflakes
     for (let i = 0; i < maxSnowflakes; i++) {
-        setTimeout(createSnowflake, i * 200); // Stagger creation every 200ms
+        setTimeout(createSnowflake, i * 300); // Stagger creation every 300ms
     }
     
     // Continuously create new snowflakes to maintain count
-    setInterval(createSnowflake, 800); // Create new snowflake every 800ms
+    setInterval(createSnowflake, 1200); // Create new snowflake every 1.2 seconds
 }
 
 /* ==== SERVICE CARD INTERACTIONS ==== */

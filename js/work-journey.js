@@ -10,35 +10,31 @@ document.addEventListener('DOMContentLoaded', function() {
     initModal();    // Set up modal functionality
     //initSlideshow();    // Set up slideshow controls
     initPageAnimations();    // Start page load animations
+    initTimeline(); // Initialize the new timeline
 
 });
 
-// Snow Effect - Reused from index page with same styling
+// Snow Effect - Updated for subtle dots
 function initSnowEffect() {
     const snowContainer = document.getElementById('snow-container'); // Get snow container element
-    const snowflakeSymbols = ['❄', '❅', '❆']; // Array of snowflake symbols to use
-    const maxSnowflakes = 50; // Maximum number of snowflakes on screen
+    const maxSnowflakes = 15; // Reduced from 50
 
-    // Function to create a single snowflake
+    // Function to create a single snow dot
     function createSnowflake() {
         const snowflake = document.createElement('div'); // Create div element for snowflake
-        snowflake.className = 'snowflake'; // Add snowflake CSS class
-        snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)]; // Random symbol
+        snowflake.className = 'snow-dot'; // Changed to snow-dot CSS class
 
         // Set random horizontal position across screen width
         snowflake.style.left = Math.random() * 100 + 'vw';
 
-        // Set random animation duration between 3-8 seconds
-        snowflake.style.animationDuration = (Math.random() * 5 + 3) + 's';
+        // Set random animation duration between 6-12 seconds
+        snowflake.style.animationDuration = (Math.random() * 6 + 6) + 's';
 
         // Set random delay before animation starts (0-2 seconds)
         snowflake.style.animationDelay = Math.random() * 2 + 's';
 
-        // Set random size between 0.8em and 1.5em
-        snowflake.style.fontSize = (Math.random() * 0.7 + 0.8) + 'em';
-
-        // Set random opacity between 0.6 and 1
-        snowflake.style.opacity = Math.random() * 0.4 + 0.6;
+        // Set random opacity between 0.5 and 0.8 (more subtle)
+        snowflake.style.opacity = Math.random() * 0.3 + 0.5;
 
         // Add snowflake to container
         snowContainer.appendChild(snowflake);
@@ -48,16 +44,16 @@ function initSnowEffect() {
             if (snowflake.parentNode) { // Check if element still exists
                 snowflake.parentNode.removeChild(snowflake); // Remove from DOM
             }
-        }, 8000); // Remove after 8 seconds (max animation duration)
+        }, 14000); // Remove after 14 seconds (max animation duration)
     }
 
     // Create initial batch of snowflakes
     for (let i = 0; i < maxSnowflakes; i++) {
-        setTimeout(createSnowflake, i * 100); // Stagger creation by 100ms each
+        setTimeout(createSnowflake, i * 200); // Stagger creation by 200ms each
     }
 
     // Continue creating snowflakes at intervals
-    setInterval(createSnowflake, 300); // Create new snowflake every 300ms
+    setInterval(createSnowflake, 600); // Create new snowflake every 600ms
 }
 
 // Map Interactivity - Handle clicks and hovers on states and pins
@@ -200,7 +196,9 @@ function openLocationModal(location, city, stateOrCountry) {
             images: [
                 "assets/images/portraits/brian-winterfox-onstage-coach.jpg",
                 "assets/images/portraits/winterfox-vs-cloud9.jpg",
-                "assets/images/portraits/winterfox-victory-shot.jpg"
+                "assets/images/portraits/winterfox-victory-shot.jpg",
+                //"assets/images/portraits/winterfox-full-team-outside.jpg",
+                "assets/images/portraits/winterfox-crowd-shot.jpg",
             ]
         },
         'las-vegas': {
@@ -209,20 +207,20 @@ function openLocationModal(location, city, stateOrCountry) {
             duration: '2017-2018',
             description: 'One of first five employees at a startup esports betting platform. Developed and executed esports strategy, including partnerships with teams and leagues, content creation, and community engagement. Played a key role in launching the platform and establishing its presence in the esports industry.',
             images: [
-                "https://via.placeholder.com/400x300/7c5fd3/ffff?text=Vegas+Image+1",
-                "https://via.placeholder.com/400x300/bfaaff/ffff?text=Vegas+Image+2",
-                "https://via.placeholder.com/400x300/e6e6fa/7c5fd3?text=Vegas+Image+3"
+                "assets/images/portraits/gamescom-vie-backdrop-cropped.jpg",
+                "assets/images/portraits/hcs-indianapolis.jpeg"                
             ]
         },
         'denver': {
             role: 'Project Manager',
-            company: 'Esports Entertainment Group, EGL',
-            duration: '2019-2024',
+            company: 'Esports Entertainment Group, EGL, South Suburban Parks and Recreation Esports',
+            duration: '2019-present',
             description: 'Managed multiple projects including website development, community engagement initiatives, and esports events. Traveled nation-wide to oversee events and manage logistics. Played a key role in expanding the company\'s reach in the esports industry, particularly in partnerships with traditional sports teams.',
             images: [
-                "https://via.placeholder.com/400x300/7c5fd3/ffff?text=Denver+Image+1",
-                "https://via.placeholder.com/400x300/bfaaff/ffff?text=Denver+Image+2",
-                "https://via.placeholder.com/400x300/e6e6fa/7c5fd3?text=Denver+Image+3"
+                "assets/images/portraits/summershowdown-execproducer.jpeg",
+                "assets/images/portraits/hub-showcase-full-lan-cropped.jpg",
+                "assets/images/portraits/philly-union-event-winners.jpeg",
+                "assets/images/portraits/hub-randomlan.jpeg"                
             ]
         },
         'chicago': {
@@ -233,7 +231,8 @@ function openLocationModal(location, city, stateOrCountry) {
             images: [
                 "assets/images/portraits/winterfox-chicago-office-1.jpg",
                 "assets/images/portraits/winterfox-in-chicago.jpg",
-                "assets/images/portraits/winterfox-chicago-office-2.jpg"
+                "assets/images/portraits/winterfox-chicago-office-2.jpg",
+                "assets/images/portraits/winterfox-chicago-office-alternate-cropped.jpg"
             ]
         },
         'jolly-harbour': {
@@ -242,9 +241,8 @@ function openLocationModal(location, city, stateOrCountry) {
             duration: '2018-2019',
             description: 'Worked internationally and managed the local office in Jolly Harbour, Antigua. Focused on esports strategy, website development, and community engagement for the upstart company. Developed and executed successful esports campaigns, helping the company eventually IPO in 2020. <I know Antigua is further south and not this big! Forgive me, I just wanted to include within the bounds of the map.>',
             images: [
-                "https://via.placeholder.com/400x300/7c5fd3/ffff?text=Antigua+Image+1",
-                "https://via.placeholder.com/400x300/bfaaff/ffff?text=Antigua+Image+2",
-                "https://via.placeholder.com/400x300/e6e6fa/7c5fd3?text=Antigua+Image+3"
+                "assets/images/portraits/antigua-flyby.jpeg",
+                "assets/images/portraits/broncos-signing-eeg2.jpeg"
             ]
         }
     };
@@ -565,3 +563,179 @@ preloadImages();
 console.log('Work Journey page loaded successfully!');
 
 
+// Timeline functionality - integrates with existing modal system
+function initTimeline() {
+    // Timeline configuration
+    const timelineStart = 2010; // Start year (will be offscreen)
+    const timelineEnd = 2025; // End year
+    const majorTickInterval = 5; // Major ticks every 5 years
+    
+    // Your career locations with years - matching your existing location data
+    const timelineLocations = [
+        {
+            location: 'los-angeles', // Matches your existing data-location
+            city: 'Los Angeles',
+            state: 'California',
+            year: 2013,
+            startYear: 2013,
+            endYear: 2016
+        },
+        {
+            location: 'chicago',
+            city: 'Chicago', 
+            state: 'Illinois',
+            year: 2015,
+            startYear: 2015,
+            endYear: 2017
+        },
+        {
+            location: 'las-vegas',
+            city: 'Las Vegas',
+            state: 'Nevada', 
+            year: 2017,
+            startYear: 2017,
+            endYear: 2018
+        },
+        {
+            location: 'jolly-harbour',
+            city: 'Jolly Harbour',
+            state: 'Antigua',
+            year: 2018,
+            startYear: 2018,
+            endYear: 2019
+        },
+        {
+            location: 'denver',
+            city: 'Denver',
+            state: 'Colorado',
+            year: 2019,
+            startYear: 2019,
+            endYear: 2024
+        }
+    ];
+    
+    // Get timeline track element
+    const timelineTrack = document.getElementById('timeline-track');
+    if (!timelineTrack) return; // Exit if timeline not found
+    
+    // Clear any existing content
+    timelineTrack.innerHTML = '';
+    
+    // Calculate timeline dimensions
+    const totalYears = timelineEnd - timelineStart; // Total span of years
+    const trackWidth = timelineTrack.offsetWidth; // Get actual track width
+    
+    // Helper function to get X position for a given year
+    function getXPosition(year) {
+        const yearProgress = (year - timelineStart) / totalYears; // Progress from 0 to 1
+        return yearProgress * trackWidth; // Convert to pixel position
+    }
+    
+    // Create major year ticks and labels (2010, 2015, 2020, 2025)
+    for (let year = timelineStart; year <= timelineEnd; year += majorTickInterval) {
+        const x = getXPosition(year); // Get X position for this year
+        
+        // Create major tick mark
+        const majorTick = document.createElement('div');
+        majorTick.className = 'timeline-tick major'; // CSS class for styling
+        majorTick.style.left = `${x}px`; // Position horizontally
+        timelineTrack.appendChild(majorTick); // Add to timeline
+        
+        // Create major year label
+        const majorLabel = document.createElement('div');
+        majorLabel.className = 'timeline-year-label major'; // CSS class for styling
+        majorLabel.textContent = year; // Display the year
+        majorLabel.style.left = `${x}px`; // Position horizontally
+        timelineTrack.appendChild(majorLabel); // Add to timeline
+    }
+    
+    // Create minor year ticks and labels (years in between major ticks)
+    for (let year = timelineStart + 1; year < timelineEnd; year++) {
+        // Skip years that are major ticks
+        if ((year - timelineStart) % majorTickInterval === 0) continue;
+        
+        const x = getXPosition(year); // Get X position for this year
+        
+        // Create minor tick mark
+        const minorTick = document.createElement('div');
+        minorTick.className = 'timeline-tick minor'; // CSS class for styling
+        minorTick.style.left = `${x}px`; // Position horizontally
+        timelineTrack.appendChild(minorTick); // Add to timeline
+        
+        // Create minor year label (show every year)
+        const minorLabel = document.createElement('div');
+        minorLabel.className = 'timeline-year-label minor';
+        minorLabel.textContent = year;
+        minorLabel.style.left = `${x}px`;
+        timelineTrack.appendChild(minorLabel);
+    }
+    
+    // Create location dots for each career location
+    timelineLocations.forEach(locationData => {
+        const x = getXPosition(locationData.year); // Get X position for this location's year
+        
+        // Create location dot (matching your map pin style)
+        const locationDot = document.createElement('div');
+        locationDot.className = 'timeline-location-dot'; // CSS class for styling
+        locationDot.style.left = `${x}px`; // Position horizontally
+        
+        // Add data attributes for modal integration (same as your map)
+        locationDot.setAttribute('data-location', locationData.location);
+        locationDot.setAttribute('data-city', locationData.city);
+        locationDot.setAttribute('data-state', locationData.state);
+        
+        // Add accessibility attributes
+        locationDot.setAttribute('tabindex', '0'); // Make focusable
+        locationDot.setAttribute('role', 'button'); // Screen reader role
+        locationDot.setAttribute('aria-label', `View details for ${locationData.city}, ${locationData.state} (${locationData.startYear}-${locationData.endYear})`);
+        
+        // Add click event listener - reuse your existing modal function
+        locationDot.addEventListener('click', function() {
+            // Call your existing modal function with the same parameters
+            openLocationModal(locationData.location, locationData.city, locationData.state);
+        });
+        
+        // Add keyboard event listener for accessibility
+        locationDot.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') { // Enter or Space key
+                event.preventDefault(); // Prevent default behavior
+                // Call your existing modal function
+                openLocationModal(locationData.location, locationData.city, locationData.state);
+            }
+        });
+        
+        // Add dot to timeline
+        timelineTrack.appendChild(locationDot);
+        
+        // Create location label (shows on hover)
+        const locationLabel = document.createElement('div');
+        locationLabel.className = 'timeline-location-label'; // CSS class for styling
+        locationLabel.textContent = `${locationData.city}\n${locationData.startYear}-${locationData.endYear}`; // City name and years
+        locationLabel.style.left = `${x}px`; // Position horizontally
+        timelineTrack.appendChild(locationLabel); // Add to timeline
+    });
+    
+    // Add timeline animation on load
+    setTimeout(() => {
+        animateTimelineElements(); // Call animation function after a delay
+    }, 2000); // Wait 2 seconds after page load
+}
+
+// Animate timeline elements on load
+function animateTimelineElements() {
+    const timelineDots = document.querySelectorAll('.timeline-location-dot'); // Get all location dots
+    
+    // Animate each dot with staggered timing
+    timelineDots.forEach((dot, index) => {
+        // Start dots invisible and small
+        dot.style.opacity = '0'; // Invisible
+        dot.style.transform = 'translate(-50%, -50%) scale(0)'; // Small and centered
+        
+        // Animate to visible and normal size with delay
+        setTimeout(() => {
+            dot.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)'; // Smooth transitions
+            dot.style.opacity = '1'; // Fade in
+            dot.style.transform = 'translate(-50%, -50%) scale(1)'; // Scale to normal size
+        }, index * 200); // Stagger by 200ms per dot
+    });
+}

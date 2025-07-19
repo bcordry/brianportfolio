@@ -11,33 +11,30 @@ document.addEventListener('DOMContentLoaded', function() {
     initProfileClick(); // Make sure this is called!
 });
 
-// Snow effect initialization (consistent with other pages)
+// Snow effect initialization (updated for subtle dots)
 function initSnowEffect() {
     const snowContainer = document.getElementById('snow-container');
     if (!snowContainer) return; // Exit if container doesn't exist
     
-    // Create multiple snowflakes for realistic effect
-    for (let i = 0; i < 50; i++) {
+    // Create fewer snowflakes for subtle effect
+    for (let i = 0; i < 15; i++) {
         createSnowflake(snowContainer);
     }
 }
 
-// Create individual snowflake element with random properties
+// Create individual snow dot element with random properties
 function createSnowflake(container) {
     const snowflake = document.createElement('div');
-    snowflake.className = 'snowflake'; // CSS class for styling
-    snowflake.innerHTML = '❄'; // Snowflake character
+    snowflake.className = 'snow-dot'; // Changed to snow-dot CSS class
     
     // Random horizontal starting position
     snowflake.style.left = Math.random() * 100 + '%';
-    // Random animation duration for varied falling speeds
-    snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    // Random animation duration for varied falling speeds (slower)
+    snowflake.style.animationDuration = (Math.random() * 6 + 6) + 's'; // 6-12 seconds
     // Random delay for staggered start times
-    snowflake.style.animationDelay = Math.random() * 2 + 's';
-    // Random opacity for depth effect
-    snowflake.style.opacity = Math.random() * 0.6 + 0.4;
-    // Random size for variety
-    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    snowflake.style.animationDelay = Math.random() * 3 + 's';
+    // Random opacity for depth effect (more subtle)
+    snowflake.style.opacity = Math.random() * 0.4 + 0.5; // 0.5 to 0.9
     
     container.appendChild(snowflake); // Add to container
     
@@ -50,7 +47,6 @@ function createSnowflake(container) {
         createSnowflake(container);
     });
 }
-
 // Parallax background effect for subtle movement
 function initParallaxEffect() {
     const parallaxBg = document.getElementById('parallax-bg');
@@ -215,15 +211,14 @@ function initProfileClick() {
         "Thanks for clicking!",
         "I'm sorry you clicked this.",
         "Achievement unlocked: Clicked my face.",
-        "This is not an Easter egg.",
+        "This click is not an Easter egg.",
         "You found the secret click zone.",
-        "I hope this was worth it.",
+        "I hope this click was worth it.",
         "Please stop poking me.",
-        "404: Feature not found.",
-        "You're persistent, I'll give you that.",
-        "Why are you like this?",
-        "Congratulations, you broke nothing.",
-        "This feature is working as intended.",
+        "404: Click feature not found.",
+        "You're persistent with those clicks, I'll give you that.",
+        "Why did you click me?",
+        "Congratulations, your click broke nothing.",
         "You've discovered my secret weakness: clicks."
     ];
     
