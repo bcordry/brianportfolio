@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding for proper text display -->
+  <meta charset="UTF-8">
+  <!-- Responsive viewport meta tag for mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title for browser tab -->
+  <title>Design Templates - Brian Cordry</title>
+
+  <!-- Google Fonts preconnect for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Import diverse font families for professional design templates -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&family=Montserrat:wght@400;600;700&family=Cardo:ital,wght@0,400;1,400&family=Playfair+Display:wght@400;600;700&family=Alice:wght@400&family=Lora:wght@400;600;700&family=Roboto:wght@300;400;500&family=Bebas+Neue&family=Didact+Gothic:wght@400&family=Arimo:wght@400;500&family=Quicksand:wght@400;500;600&family=Cormorant+Garamond:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Source+Serif+Pro:wght@400;600&family=Oxygen:wght@400;700&family=Raleway:wght@400;600&family=Open+Sans:wght@300;400;600&family=Nunito:wght@400;600&family=Work+Sans:wght@400;600&family=PT+Sans:wght@400;700&family=Cabin:wght@400;500&family=Hind:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS files: unified styles first, then page-specific -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/design-template.css">
+</head>
+<body>
+  <!-- Snow effect container (fixed, covers viewport) -->
+  <div class="snow-container" id="snow-container"></div>
+
+  <!-- Sticky header navigation (unified across all non-index pages) -->
+  <header class="sticky-header">
+    <nav class="nav-container">
+      <!-- Logo/brand on the left -->
+      <div class="nav-logo">
+        <a href="index.html" class="logo-link">Brian Cordry</a>
+      </div>
+      <!-- Navigation links on the right -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="work-journey.html" class="nav-link">Experience</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="design-template.html" class="nav-link active">Design Templates</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content area for design templates -->
+  <main class="design-main">
+    <!-- Page header with title and description -->
+    <div class="page-header">
+      <h1 class="page-title">Design Templates</h1>
+      <p class="page-subtitle">Explore industry-inspired color palettes and professional font pairings</p>
+    </div>
+
+    <!-- Filter controls for color palettes -->
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All Palettes</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="tech">Technology</button>
+      <button class="filter-btn" data-filter="creative">Creative</button>
+      <button class="filter-btn" data-filter="natural">Natural</button>
+    </div>
+
+    <!-- Design templates grid container (3 columns, 12 rows = 36 templates) -->
+    <div class="templates-grid">
+      
+      <!-- Row 1: Corporate Blue & Orange (Nutrien-inspired) -->
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview corporate-blue montserrat-cardo">
+          <h3 class="template-title">Corporate Authority 💼</h3>
+          <p class="template-text">Montserrat + Cardo</p>
+          <div class="template-icons">📊 🏢 📈</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview corporate-blue bebas-montserrat">
+          <h3 class="template-title">Corporate Authority 💼</h3>
+          <p class="template-text">Bebas Neue + Montserrat</p>
+          <div class="template-icons">📊 🏢 📈</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview corporate-blue source-sans-serif">
+          <h3 class="template-title">Corporate Authority 💼</h3>
+          <p class="template-text">Source Sans + Source Serif</p>
+          <div class="template-icons">📊 🏢 📈</div>
+        </div>
+      </div>
+
+      <!-- Row 2: Tech Green & Purple (Modern tech palette) -->
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview tech-green playfair-alice">
+          <h3 class="template-title">Tech Innovation 🚀</h3>
+          <p class="template-text">Playfair Display + Alice</p>
+          <div class="template-icons">💻 ⚡ 🔬</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview tech-green roboto-lora">
+          <h3 class="template-title">Tech Innovation 🚀</h3>
+          <p class="template-text">Roboto + Lora</p>
+          <div class="template-icons">💻 ⚡ 🔬</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview tech-green work-open">
+          <h3 class="template-title">Tech Innovation 🚀</h3>
+          <p class="template-text">Work Sans + Open Sans</p>
+          <div class="template-icons">💻 ⚡ 🔬</div>
+        </div>
+      </div>
+
+      <!-- Row 3: Creative Coral & Teal (Design agency palette) -->
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview creative-coral quicksand-cormorant">
+          <h3 class="template-title">Creative Studio 🎨</h3>
+          <p class="template-text">Quicksand + Cormorant</p>
+          <div class="template-icons">🎭 🌈 ✨</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview creative-coral nunito-open">
+          <h3 class="template-title">Creative Studio 🎨</h3>
+          <p class="template-text">Nunito + Open Sans</p>
+          <div class="template-icons">🎭 🌈 ✨</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview creative-coral raleway-open">
+          <h3 class="template-title">Creative Studio 🎨</h3>
+          <p class="template-text">Raleway + Open Sans</p>
+          <div class="template-icons">🎭 🌈 ✨</div>
+        </div>
+      </div>
+
+      <!-- Row 4: Natural Earth & Sky (Sustainable/organic palette) -->
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview natural-earth didact-arimo">
+          <h3 class="template-title">Earth & Sky 🌍</h3>
+          <p class="template-text">Didact Gothic + Arimo</p>
+          <div class="template-icons">🌱 🌿 🌾</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview natural-earth oxygen-source">
+          <h3 class="template-title">Earth & Sky 🌍</h3>
+          <p class="template-text">Oxygen + Source Sans</p>
+          <div class="template-icons">🌱 🌿 🌾</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview natural-earth pt-cabin">
+          <h3 class="template-title">Earth & Sky 🌍</h3>
+          <p class="template-text">PT Sans + Cabin</p>
+          <div class="template-icons">🌱 🌿 🌾</div>
+        </div>
+      </div>
+
+      <!-- Row 5: Financial Navy & Gold (Banking/finance palette) -->
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview financial-navy montserrat-cardo">
+          <h3 class="template-title">Financial Trust 🏦</h3>
+          <p class="template-text">Montserrat + Cardo</p>
+          <div class="template-icons">💰 📊 🔒</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview financial-navy hind-open">
+          <h3 class="template-title">Financial Trust 🏦</h3>
+          <p class="template-text">Hind + Open Sans</p>
+          <div class="template-icons">💰 📊 🔒</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview financial-navy source-sans-serif">
+          <h3 class="template-title">Financial Trust 🏦</h3>
+          <p class="template-text">Source Sans + Source Serif</p>
+          <div class="template-icons">💰 📊 🔒</div>
+        </div>
+      </div>
+
+      <!-- Row 6: Healthcare Blue & Green (Medical/wellness palette) -->
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview healthcare-blue playfair-alice">
+          <h3 class="template-title">Healthcare Plus ⚕️</h3>
+          <p class="template-text">Playfair Display + Alice</p>
+          <div class="template-icons">🏥 💊 🩺</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview healthcare-blue roboto-lora">
+          <h3 class="template-title">Healthcare Plus ⚕️</h3>
+          <p class="template-text">Roboto + Lora</p>
+          <div class="template-icons">🏥 💊 🩺</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview healthcare-blue work-open">
+          <h3 class="template-title">Healthcare Plus ⚕️</h3>
+          <p class="template-text">Work Sans + Open Sans</p>
+          <div class="template-icons">🏥 💊 🩺</div>
+        </div>
+      </div>
+
+      <!-- Row 7: Energy Red & Yellow (Power/energy palette) -->
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview energy-red bebas-montserrat">
+          <h3 class="template-title">Energy Power ⚡</h3>
+          <p class="template-text">Bebas Neue + Montserrat</p>
+          <div class="template-icons">🔥 ⚡ 🌟</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview energy-red quicksand-cormorant">
+          <h3 class="template-title">Energy Power ⚡</h3>
+          <p class="template-text">Quicksand + Cormorant</p>
+          <div class="template-icons">🔥 ⚡ 🌟</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview energy-red oxygen-source">
+          <h3 class="template-title">Energy Power ⚡</h3>
+          <p class="template-text">Oxygen + Source Sans</p>
+          <div class="template-icons">🔥 ⚡ 🌟</div>
+        </div>
+      </div>
+
+      <!-- Row 8: Luxury Purple & Gold (Premium/luxury palette) -->
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview luxury-purple playfair-alice">
+          <h3 class="template-title">Luxury Elite 👑</h3>
+          <p class="template-text">Playfair Display + Alice</p>
+          <div class="template-icons">💎 🥂 ✨</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview luxury-purple montserrat-cardo">
+          <h3 class="template-title">Luxury Elite 👑</h3>
+          <p class="template-text">Montserrat + Cardo</p>
+          <div class="template-icons">💎 🥂 ✨</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="creative">
+        <div class="template-preview luxury-purple raleway-open">
+          <h3 class="template-title">Luxury Elite 👑</h3>
+          <p class="template-text">Raleway + Open Sans</p>
+          <div class="template-icons">💎 🥂 ✨</div>
+        </div>
+      </div>
+
+      <!-- Row 9: Food Orange & Brown (Restaurant/food palette) -->
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview food-orange quicksand-cormorant">
+          <h3 class="template-title">Artisan Food 🍽️</h3>
+          <p class="template-text">Quicksand + Cormorant</p>
+          <div class="template-icons">🍕 🥖 ☕</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview food-orange nunito-open">
+          <h3 class="template-title">Artisan Food 🍽️</h3>
+          <p class="template-text">Nunito + Open Sans</p>
+          <div class="template-icons">🍕 🥖 ☕</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview food-orange pt-cabin">
+          <h3 class="template-title">Artisan Food 🍽️</h3>
+          <p class="template-text">PT Sans + Cabin</p>
+          <div class="template-icons">🍕 🥖 ☕</div>
+        </div>
+      </div>
+
+      <!-- Row 10: Education Blue & Orange (Academic palette) -->
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview education-blue roboto-lora">
+          <h3 class="template-title">Academic Edge 🎓</h3>
+          <p class="template-text">Roboto + Lora</p>
+          <div class="template-icons">📚 🎓 🔬</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview education-blue work-open">
+          <h3 class="template-title">Academic Edge 🎓</h3>
+          <p class="template-text">Work Sans + Open Sans</p>
+          <div class="template-icons">📚 🎓 🔬</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="tech">
+        <div class="template-preview education-blue hind-open">
+          <h3 class="template-title">Academic Edge 🎓</h3>
+          <p class="template-text">Hind + Open Sans</p>
+          <div class="template-icons">📚 🎓 🔬</div>
+        </div>
+      </div>
+
+      <!-- Row 11: Real Estate Gray & Blue (Property palette) -->
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview realestate-gray bebas-montserrat">
+          <h3 class="template-title">Property Pro 🏠</h3>
+          <p class="template-text">Bebas Neue + Montserrat</p>
+          <div class="template-icons">🏠 🔑 📍</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview realestate-gray didact-arimo">
+          <h3 class="template-title">Property Pro 🏠</h3>
+          <p class="template-text">Didact Gothic + Arimo</p>
+          <div class="template-icons">🏠 🔑 📍</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="corporate">
+        <div class="template-preview realestate-gray source-sans-serif">
+          <h3 class="template-title">Property Pro 🏠</h3>
+          <p class="template-text">Source Sans + Source Serif</p>
+          <div class="template-icons">🏠 🔑 📍</div>
+        </div>
+      </div>
+
+      <!-- Row 12: Fitness Green & Black (Sports/fitness palette) -->
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview fitness-green bebas-montserrat">
+          <h3 class="template-title">Fitness Force 💪</h3>
+          <p class="template-text">Bebas Neue + Montserrat</p>
+          <div class="template-icons">💪 🏃 🏋️</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview fitness-green oxygen-source">
+          <h3 class="template-title">Fitness Force 💪</h3>
+          <p class="template-text">Oxygen + Source Sans</p>
+          <div class="template-icons">💪 🏃 🏋️</div>
+        </div>
+      </div>
+      
+      <div class="template-card" data-palette="natural">
+        <div class="template-preview fitness-green work-open">
+          <h3 class="template-title">Fitness Force 💪</h3>
+          <p class="template-text">Work Sans + Open Sans</p>
+          <div class="template-icons">💪 🏃 🏋️</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- JavaScript for snow effect, filtering, and hover animations -->
+  <script src="js/design-template.js"></script>
+</body>
+</html>

@@ -1,0 +1,592 @@
+/* ==== DESIGN TEMPLATE PAGE STYLES ==== */
+/* Comprehensive styling for industry-inspired color palettes and professional font pairings */
+
+/* ==== PAGE LAYOUT AND STRUCTURE ==== */
+
+.design-main {
+  padding-top: calc(var(--header-height) + 2rem); /* Space for sticky header plus margin */
+  max-width: var(--max-content-width); /* Maximum content width */
+  margin: 0 auto; /* Center the main content */
+  padding-left: 2rem; /* Left padding */
+  padding-right: 2rem; /* Right padding */
+  padding-bottom: 4rem; /* Bottom padding for spacing */
+}
+
+/* Page header styling */
+.page-header {
+  text-align: center; /* Center align header content */
+  margin-bottom: 3rem; /* Space below header */
+  opacity: 0; /* Start invisible for animation */
+  transform: translateY(30px); /* Start below for animation */
+  animation: fadeInUp 1s ease forwards; /* Fade in animation */
+}
+
+.page-title {
+  font-family: 'Ysabeau SC', sans-serif; /* Display font for title */
+  font-size: 3.5rem; /* Large title size */
+  color: var(--primary-purple); /* Primary purple color */
+  margin-bottom: 1rem; /* Space below title */
+  letter-spacing: 0.05em; /* Slight letter spacing */
+  text-shadow: 0 4px 20px rgba(124, 95, 211, 0.3); /* Purple glow */
+}
+
+.page-subtitle {
+  font-family: 'Oswald', sans-serif; /* Body font for subtitle */
+  font-size: 1.2rem; /* Medium subtitle size */
+  color: var(--light-purple); /* Light purple color */
+  margin: 0; /* No margin */
+  letter-spacing: 0.1em; /* Letter spacing */
+  opacity: 0.8; /* Slightly transparent */
+}
+
+/* ==== FILTER CONTROLS ==== */
+
+.filter-controls {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center the filter buttons */
+  gap: 1rem; /* Space between buttons */
+  margin-bottom: 3rem; /* Space below filters */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.filter-btn {
+  background: rgba(191, 170, 255, 0.1); /* Light purple background */
+  border: 2px solid var(--light-purple); /* Purple border */
+  color: var(--light-purple); /* Purple text */
+  padding: 0.75rem 1.5rem; /* Button padding */
+  border-radius: var(--border-radius-small); /* Rounded corners */
+  font-family: 'Oswald', sans-serif; /* Body font */
+  font-weight: 500; /* Medium weight */
+  font-size: 0.9rem; /* Button font size */
+  letter-spacing: 0.05em; /* Letter spacing */
+  cursor: pointer; /* Pointer cursor */
+  transition: var(--transition-fast); /* Smooth transitions */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow for effects */
+}
+
+.filter-btn:hover {
+  background: rgba(124, 95, 211, 0.2); /* Darker background on hover */
+  color: var(--primary-purple); /* Darker text on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: var(--shadow-light); /* Add shadow on hover */
+}
+
+.filter-btn.active {
+  background: var(--primary-purple); /* Purple background for active */
+  color: white; /* White text for active */
+  box-shadow: var(--shadow-medium); /* Medium shadow for active */
+}
+
+/* ==== TEMPLATES GRID ==== */
+
+.templates-grid {
+  display: grid; /* CSS Grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 2rem; /* Space between grid items */
+  margin-top: 2rem; /* Space above grid */
+}
+
+/* Individual template card styling */
+.template-card {
+  opacity: 0; /* Start invisible for staggered animation */
+  transform: translateY(50px) scale(0.9); /* Start below and smaller */
+  animation: fadeInScale 0.8s ease forwards; /* Fade in animation */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Staggered animation delays for cards */
+.template-card:nth-child(1) { animation-delay: 0.1s; }
+.template-card:nth-child(2) { animation-delay: 0.2s; }
+.template-card:nth-child(3) { animation-delay: 0.3s; }
+.template-card:nth-child(4) { animation-delay: 0.4s; }
+.template-card:nth-child(5) { animation-delay: 0.5s; }
+.template-card:nth-child(6) { animation-delay: 0.6s; }
+.template-card:nth-child(7) { animation-delay: 0.7s; }
+.template-card:nth-child(8) { animation-delay: 0.8s; }
+.template-card:nth-child(9) { animation-delay: 0.9s; }
+.template-card:nth-child(10) { animation-delay: 1.0s; }
+.template-card:nth-child(11) { animation-delay: 1.1s; }
+.template-card:nth-child(12) { animation-delay: 1.2s; }
+
+/* Template preview container with thick border design */
+.template-preview {
+  border-radius: var(--border-radius); /* Rounded corners */
+  padding: 2rem; /* Internal padding */
+  height: 300px; /* Fixed height for consistency */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Vertical layout */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow */
+  cursor: pointer; /* Pointer cursor */
+  transition: var(--transition-smooth); /* Smooth transitions */
+  box-shadow: var(--shadow-light); /* Light shadow */
+  border: 8px solid; /* Thick border - color defined per palette */
+}
+
+.template-preview:hover {
+  transform: translateY(-10px) scale(1.05); /* Lift and scale on hover */
+  box-shadow: var(--shadow-heavy); /* Heavy shadow on hover */
+}
+
+/* Template title styling */
+.template-title {
+  font-size: 1.8rem; /* Large title size */
+  margin-bottom: 0.5rem; /* Space below title */
+  font-weight: 700; /* Bold weight */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Template text styling */
+.template-text {
+  font-size: 1rem; /* Standard text size */
+  margin-bottom: 1rem; /* Space below text */
+  opacity: 0.8; /* Slightly transparent */
+  font-weight: 400; /* Normal weight */
+  transition: var(--transition-fast); /* Smooth transitions */
+}
+
+/* Template icons styling */
+.template-icons {
+  font-size: 1.5rem; /* Large icon size */
+  letter-spacing: 0.5rem; /* Space between icons */
+  transition: var(--transition-bounce); /* Bouncy transition */
+}
+
+.template-preview:hover .template-icons {
+  transform: scale(1.2) rotate(5deg); /* Scale and rotate icons on hover */
+}
+
+.template-preview:hover .template-title {
+  transform: scale(1.1); /* Scale title on hover */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Add shadow to title */
+}
+
+.template-preview:hover .template-text {
+  transform: translateY(-5px); /* Move text up on hover */
+  opacity: 1; /* Full opacity on hover */
+}
+
+/* ==== INDUSTRY-INSPIRED COLOR PALETTE DEFINITIONS ==== */
+
+/* Corporate Blue & Orange - Professional business palette */
+.corporate-blue {
+  background: #1e3a8a; /* Deep corporate blue background */
+  border-color: #f97316; /* Orange border for contrast */
+  color: #ffffff; /* White text for readability */
+}
+
+.corporate-blue .template-title {
+  color: #fed7aa; /* Light orange for titles */
+}
+
+.corporate-blue .template-text {
+  color: #fbbf24; /* Golden yellow for text */
+}
+
+/* Tech Green & Purple - Modern technology palette */
+.tech-green {
+  background: #059669; /* Tech green background */
+  border-color: #7c3aed; /* Purple border for tech feel */
+  color: #ffffff; /* White text */
+}
+
+.tech-green .template-title {
+  color: #ddd6fe; /* Light purple for titles */
+}
+
+.tech-green .template-text {
+  color: #c4b5fd; /* Medium purple for text */
+}
+
+/* Creative Coral & Teal - Design agency palette */
+.creative-coral {
+  background: #f97316; /* Vibrant coral background */
+  border-color: #0891b2; /* Teal border for creative contrast */
+  color: #ffffff; /* White text */
+}
+
+.creative-coral .template-title {
+  color: #a7f3d0; /* Light teal for titles */
+}
+
+.creative-coral .template-text {
+  color: #67e8f9; /* Bright cyan for text */
+}
+
+/* Natural Earth & Sky - Sustainable/organic palette */
+.natural-earth {
+  background: #92400e; /* Earth brown background */
+  border-color: #0ea5e9; /* Sky blue border */
+  color: #ffffff; /* White text */
+}
+
+.natural-earth .template-title {
+  color: #bae6fd; /* Light sky blue for titles */
+}
+
+.natural-earth .template-text {
+  color: #7dd3fc; /* Medium sky blue for text */
+}
+
+/* Financial Navy & Gold - Banking/finance palette */
+.financial-navy {
+  background: #1e293b; /* Deep navy background */
+  border-color: #eab308; /* Gold border for luxury feel */
+  color: #ffffff; /* White text */
+}
+
+.financial-navy .template-title {
+  color: #fef3c7; /* Light gold for titles */
+}
+
+.financial-navy .template-text {
+  color: #fbbf24; /* Medium gold for text */
+}
+
+/* Healthcare Blue & Green - Medical/wellness palette */
+.healthcare-blue {
+  background: #1e40af; /* Medical blue background */
+  border-color: #16a34a; /* Health green border */
+  color: #ffffff; /* White text */
+}
+
+.healthcare-blue .template-title {
+  color: #dcfce7; /* Light green for titles */
+}
+
+.healthcare-blue .template-text {
+  color: #86efac; /* Medium green for text */
+}
+
+/* Energy Red & Yellow - Power/energy palette */
+.energy-red {
+  background: #dc2626; /* Energy red background */
+  border-color: #eab308; /* Electric yellow border */
+  color: #ffffff; /* White text */
+}
+
+.energy-red .template-title {
+  color: #fef3c7; /* Light yellow for titles */
+}
+
+.energy-red .template-text {
+  color: #fbbf24; /* Medium yellow for text */
+}
+
+/* Luxury Purple & Gold - Premium/luxury palette */
+.luxury-purple {
+  background: #6b21a8; /* Rich purple background */
+  border-color: #d97706; /* Luxury gold border */
+  color: #ffffff; /* White text */
+}
+
+.luxury-purple .template-title {
+  color: #fed7aa; /* Light gold for titles */
+}
+
+.luxury-purple .template-text {
+  color: #fbbf24; /* Medium gold for text */
+}
+
+/* Food Orange & Brown - Restaurant/food palette */
+.food-orange {
+  background: #ea580c; /* Food orange background */
+  border-color: #92400e; /* Rich brown border */
+  color: #ffffff; /* White text */
+}
+
+.food-orange .template-title {
+  color: #fef3c7; /* Cream for titles */
+}
+
+.food-orange .template-text {
+  color: #fed7aa; /* Light peach for text */
+}
+
+/* Education Blue & Orange - Academic palette */
+.education-blue {
+  background: #2563eb; /* Academic blue background */
+  border-color: #f97316; /* School orange border */
+  color: #ffffff; /* White text */
+}
+
+.education-blue .template-title {
+  color: #fed7aa; /* Light orange for titles */
+}
+
+.education-blue .template-text {
+  color: #fbbf24; /* Golden yellow for text */
+}
+
+/* Real Estate Gray & Blue - Property palette */
+.realestate-gray {
+  background: #4b5563; /* Professional gray background */
+  border-color: #2563eb; /* Trust blue border */
+  color: #ffffff; /* White text */
+}
+
+.realestate-gray .template-title {
+  color: #dbeafe; /* Light blue for titles */
+}
+
+.realestate-gray .template-text {
+  color: #93c5fd; /* Medium blue for text */
+}
+
+/* Fitness Green & Black - Sports/fitness palette */
+.fitness-green {
+  background: #16a34a; /* Fitness green background */
+  border-color: #1f2937; /* Strong black border */
+  color: #ffffff; /* White text */
+}
+
+.fitness-green .template-title {
+  color: #f3f4f6; /* Light gray for titles */
+}
+
+.fitness-green .template-text {
+  color: #d1d5db; /* Medium gray for text */
+}
+
+/* ==== FONT PAIRING CLASSES ==== */
+
+/* Montserrat + Cardo pairing - Modern geometric + classic serif */
+.montserrat-cardo .template-title {
+  font-family: 'Montserrat', sans-serif; /* Geometric sans for titles */
+}
+
+.montserrat-cardo .template-text {
+  font-family: 'Cardo', serif; /* Old-style serif for body */
+}
+
+/* Bebas Neue + Montserrat pairing - Display caps + clean sans */
+.bebas-montserrat .template-title {
+  font-family: 'Bebas Neue', cursive; /* Display caps for titles */
+  letter-spacing: 0.1em; /* Tight tracking for display font */
+}
+
+.bebas-montserrat .template-text {
+  font-family: 'Montserrat', sans-serif; /* Geometric sans for body */
+}
+
+/* Source Sans Pro + Source Serif Pro pairing - Designer duo */
+.source-sans-serif .template-title {
+  font-family: 'Source Sans Pro', sans-serif; /* Grotesque sans for titles */
+}
+
+.source-sans-serif .template-text {
+  font-family: 'Source Serif Pro', serif; /* Matching serif for body */
+}
+
+/* Playfair Display + Alice pairing - Elegant serif + lighter serif */
+.playfair-alice .template-title {
+  font-family: 'Playfair Display', serif; /* Didone serif for titles */
+}
+
+.playfair-alice .template-text {
+  font-family: 'Alice', serif; /* Transitional serif for body */
+}
+
+/* Roboto + Lora pairing - Neutral sans + literary serif */
+.roboto-lora .template-title {
+  font-family: 'Roboto', sans-serif; /* Neo-grotesque sans for titles */
+  font-weight: 500; /* Medium weight */
+}
+
+.roboto-lora .template-text {
+  font-family: 'Lora', serif; /* Serif for body */
+}
+
+/* Work Sans + Open Sans pairing - Robust geometric + neutral body */
+.work-open .template-title {
+  font-family: 'Work Sans', sans-serif; /* Structured sans for titles */
+}
+
+.work-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Quicksand + Cormorant Garamond pairing - Rounded sans + elegant serif */
+.quicksand-cormorant .template-title {
+  font-family: 'Quicksand', sans-serif; /* Geometric sans for titles */
+}
+
+.quicksand-cormorant .template-text {
+  font-family: 'Cormorant Garamond', serif; /* Serif for body */
+}
+
+/* Nunito + Open Sans pairing - Friendly sans + easy-read body */
+.nunito-open .template-title {
+  font-family: 'Nunito', sans-serif; /* Rounded sans for titles */
+}
+
+.nunito-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Raleway + Open Sans pairing - Light geometric + neutral sans */
+.raleway-open .template-title {
+  font-family: 'Raleway', sans-serif; /* Geometric sans for titles */
+}
+
+.raleway-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+}
+
+/* Didact Gothic + Arimo pairing - Two humanist sans fonts */
+.didact-arimo .template-title {
+  font-family: 'Didact Gothic', sans-serif; /* Humanist sans for titles */
+  font-weight: 500; /* Medium weight */
+}
+
+.didact-arimo .template-text {
+  font-family: 'Arimo', sans-serif; /* Humanist sans for body */
+}
+
+/* Oxygen + Source Sans Pro pairing - Condensed sans + open sans */
+.oxygen-source .template-title {
+  font-family: 'Oxygen', sans-serif; /* Tech sans for titles */
+  font-weight: 700; /* Bold weight for condensed font */
+}
+
+.oxygen-source .template-text {
+  font-family: 'Source Sans Pro', sans-serif; /* Grotesque sans for body */
+}
+
+/* PT Sans + Cabin pairing - Clean sans + soft sans */
+.pt-cabin .template-title {
+  font-family: 'PT Sans', sans-serif; /* Geometric sans for titles */
+  font-weight: 700; /* Bold weight */
+}
+
+.pt-cabin .template-text {
+  font-family: 'Cabin', sans-serif; /* Rounded sans for body */
+}
+
+/* Hind + Open Sans pairing - Tall sans + standard body */
+.hind-open .template-title {
+  font-family: 'Hind', sans-serif; /* Neo-grotesque sans for titles */
+  font-weight: 700; /* Heavy weight for tall font */
+}
+
+.hind-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Humanist sans for body */
+  font-weight: 300; /* Light weight for contrast */
+}
+
+/* ==== ANIMATIONS ==== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateY(30px); /* Start below */
+  }
+  to {
+    opacity: 1; /* End visible */
+    transform: translateY(0); /* End in position */
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0; /* Start invisible */
+    transform: translateY(50px) scale(0.9); /* Start below and smaller */
+  }
+  to {
+    opacity: 1; /* End visible */
+    transform: translateY(0) scale(1); /* End in position and normal size */
+  }
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+
+/* Large screens (desktops) */
+@media (max-width: 1400px) {
+  .page-title {
+    font-size: 3rem; /* Smaller title on large screens */
+  }
+  
+  .templates-grid {
+    gap: 1.5rem; /* Less gap between cards */
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1100px) {
+  .page-title {
+    font-size: 2.5rem; /* Smaller title on medium screens */
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem; /* Smaller subtitle */
+  }
+  
+  .template-preview {
+    height: 250px; /* Shorter cards on medium screens */
+    padding: 1.5rem; /* Less padding */
+    border-width: 6px; /* Thinner border on smaller screens */
+  }
+  
+  .template-title {
+    font-size: 1.6rem; /* Smaller template titles */
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 900px) {
+  .design-main {
+    padding-left: 1rem; /* Less side padding */
+    padding-right: 1rem; /* Less side padding */
+  }
+  
+  .templates-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 1rem; /* Less gap */
+  }
+  
+  .page-title {
+    font-size: 2rem; /* Mobile title size */
+  }
+  
+  .filter-controls {
+    gap: 0.5rem; /* Less gap between filter buttons */
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1rem; /* Smaller filter buttons */
+    font-size: 0.8rem; /* Smaller font */
+  }
+  
+  .template-preview {
+    border-width: 4px; /* Even thinner border on mobile */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 600px) {
+  .templates-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+  
+  .template-preview {
+    height: 200px; /* Even shorter cards */
+    padding: 1rem; /* Minimal padding */
+    border-width: 3px; /* Minimal border on very small screens */
+  }
+  
+  .template-title {
+    font-size: 1.4rem; /* Smaller titles */
+  }
+  
+  .template-text {
+    font-size: 0.9rem; /* Smaller text */
+  }
+  
+  .template-icons {
+    font-size: 1.2rem; /* Smaller icons */
+  }
+}
