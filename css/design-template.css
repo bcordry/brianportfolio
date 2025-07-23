@@ -352,7 +352,358 @@
   color: #d1d5db; /* Medium gray for text */
 }
 
-/* ==== FONT PAIRING CLASSES ==== */
+
+/* Steel Blue Industrial Palette (#4682B4 primary, #ADD8E6 border, #C65D3B accent, #E6E6E6 neutral) */
+.steel-blue-industrial {
+  background: linear-gradient(135deg, #4682B4 0%, #5B9BD5 100%); /* Primary steel blue gradient */
+  border: 6px solid #ADD8E6; /* Light blue thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.steel-blue-industrial::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #C65D3B; /* Rust accent color */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.steel-blue-industrial:hover {
+  background: linear-gradient(135deg, #5B9BD5 0%, #4682B4 100%); /* Reverse gradient on hover */
+  border-color: #87CEEB; /* Lighter border on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(70, 130, 180, 0.3); /* Enhanced shadow */
+}
+
+/* Charcoal & Copper Industrial Palette (#3B3B3F primary, #A0522D copper, #C65D3B accent, #E6E6E6 neutral) */
+.charcoal-copper-industrial {
+  background: linear-gradient(135deg, #3B3B3F 0%, #4A4A4F 100%); /* Charcoal gradient */
+  border: 6px solid #A0522D; /* Copper thick border */
+  color: #E6E6E6; /* Light gray text */
+  position: relative; /* For accent positioning */
+}
+
+.charcoal-copper-industrial::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #C65D3B; /* Rust accent color */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.charcoal-copper-industrial:hover {
+  background: linear-gradient(135deg, #4A4A4F 0%, #3B3B3F 100%); /* Reverse gradient on hover */
+  border-color: #B8860B; /* Darker copper on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(160, 82, 45, 0.3); /* Enhanced copper shadow */
+}
+
+/* Colorado School of Mines Academic Palette (#21314D primary, #92A2BD secondary, #D2492A accent, #B2B4B3 neutral) */
+.colorado-mines-academic {
+  background: linear-gradient(135deg, #21314D 0%, #2A3F5F 100%); /* Dark blue gradient */
+  border: 6px solid #92A2BD; /* Light blue thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.colorado-mines-academic::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #D2492A; /* Colorado red accent */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.colorado-mines-academic:hover {
+  background: linear-gradient(135deg, #2A3F5F 0%, #21314D 100%); /* Reverse gradient on hover */
+  border-color: #A5B5C9; /* Lighter border on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(33, 49, 77, 0.3); /* Enhanced shadow */
+}
+
+/* Komatsu Construction Palette (#140A9A primary, #FFC82F yellow, #1B232A neutral, #FFFFFF background) */
+.komatsu-construction {
+  background: linear-gradient(135deg, #140A9A 0%, #1E0FB8 100%); /* Komatsu blue gradient */
+  border: 6px solid #FFC82F; /* Bright yellow thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.komatsu-construction::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #1B232A; /* Dark gray accent */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.komatsu-construction:hover {
+  background: linear-gradient(135deg, #1E0FB8 0%, #140A9A 100%); /* Reverse gradient on hover */
+  border-color: #FFD700; /* Brighter yellow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(20, 10, 154, 0.3); /* Enhanced blue shadow */
+}
+
+/* Caterpillar Classic Palette (#000000 primary, #FFC500 yellow accent, #FFFFFF background) */
+.caterpillar-classic {
+  background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%); /* Black gradient */
+  border: 6px solid #FFC500; /* Caterpillar yellow thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.caterpillar-classic::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #FFC500; /* Yellow accent (same as border for emphasis) */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.caterpillar-classic:hover {
+  background: linear-gradient(135deg, #1A1A1A 0%, #000000 100%); /* Reverse gradient on hover */
+  border-color: #FFD700; /* Brighter yellow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(255, 197, 0, 0.3); /* Enhanced yellow shadow */
+}
+
+/* John Deere Agriculture Palette (#367C2B primary, #FFDE00 yellow accent, #000000 neutral) */
+.john-deere-agriculture {
+  background: linear-gradient(135deg, #367C2B 0%, #4A9B3A 100%); /* John Deere green gradient */
+  border: 6px solid #FFDE00; /* Bright yellow thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.john-deere-agriculture::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #000000; /* Black accent */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.john-deere-agriculture:hover {
+  background: linear-gradient(135deg, #4A9B3A 0%, #367C2B 100%); /* Reverse gradient on hover */
+  border-color: #FFE55C; /* Lighter yellow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(54, 124, 43, 0.3); /* Enhanced green shadow */
+}
+
+/* Industrial Chic Modern Palette (#B0B3B8 primary, #4B4E54 secondary, #C65D3B accent) */
+.industrial-chic-modern {
+  background: linear-gradient(135deg, #B0B3B8 0%, #9CA0A6 100%); /* Medium gray gradient */
+  border: 6px solid #4B4E54; /* Charcoal thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.industrial-chic-modern::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #C65D3B; /* Rust accent color */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.industrial-chic-modern:hover {
+  background: linear-gradient(135deg, #9CA0A6 0%, #B0B3B8 100%); /* Reverse gradient on hover */
+  border-color: #5A5E65; /* Lighter charcoal on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(75, 78, 84, 0.3); /* Enhanced charcoal shadow */
+}
+
+/* Heavy Metal Monotone Palette (#7B7B7A primary, #E6E6E6 secondary, #D2691E accent) */
+.heavy-metal-monotone {
+  background: linear-gradient(135deg, #7B7B7A 0%, #8A8A89 100%); /* Gray gradient */
+  border: 6px solid #E6E6E6; /* Light gray thick border */
+  color: #FFFFFF; /* White text for contrast */
+  position: relative; /* For accent positioning */
+}
+
+.heavy-metal-monotone::before {
+  content: ''; /* Accent color indicator */
+  position: absolute; /* Positioned relative to parent */
+  top: 10px; /* Distance from top */
+  right: 10px; /* Distance from right */
+  width: 20px; /* Accent square width */
+  height: 20px; /* Accent square height */
+  background: #D2691E; /* Orange accent color */
+  border-radius: 3px; /* Slightly rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Subtle shadow */
+}
+
+.heavy-metal-monotone:hover {
+  background: linear-gradient(135deg, #8A8A89 0%, #7B7B7A 100%); /* Reverse gradient on hover */
+  border-color: #F0F0F0; /* Lighter border on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(123, 123, 122, 0.3); /* Enhanced gray shadow */
+}
+
+/* ===== FONT PAIRING CLASSES FOR INDUSTRY PALETTES ===== */
+
+/* Montserrat + Lora pairing */
+.montserrat-lora .template-title {
+  font-family: 'Montserrat', sans-serif; /* Sans-serif headline font */
+  font-weight: 700; /* Bold weight for impact */
+}
+
+.montserrat-lora .template-text {
+  font-family: 'Lora', serif; /* Serif body font for readability */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Roboto Slab + Open Sans pairing */
+.roboto-slab-open .template-title {
+  font-family: 'Roboto Slab', serif; /* Slab serif headline */
+  font-weight: 700; /* Bold weight */
+}
+
+.roboto-slab-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Clean sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Oswald + Source Sans Pro pairing */
+.oswald-source .template-title {
+  font-family: 'Oswald', sans-serif; /* Condensed sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.oswald-source .template-text {
+  font-family: 'Source Sans Pro', sans-serif; /* Professional sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Work Sans + Lora pairing */
+.work-lora .template-title {
+  font-family: 'Work Sans', sans-serif; /* Modern sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.work-lora .template-text {
+  font-family: 'Lora', serif; /* Serif body font */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Playfair Display + Source Sans pairing */
+.playfair-source .template-title {
+  font-family: 'Playfair Display', serif; /* Elegant serif headline */
+  font-weight: 700; /* Bold weight */
+}
+
+.playfair-source .template-text {
+  font-family: 'Source Sans Pro', sans-serif; /* Clean sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Raleway + Lora pairing */
+.raleway-lora .template-title {
+  font-family: 'Raleway', sans-serif; /* Elegant sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.raleway-lora .template-text {
+  font-family: 'Lora', serif; /* Serif body font */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Oswald + Open Sans pairing */
+.oswald-open .template-title {
+  font-family: 'Oswald', sans-serif; /* Condensed sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.oswald-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Clean sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Bebas Neue + Roboto pairing */
+.bebas-roboto .template-title {
+  font-family: 'Bebas Neue', sans-serif; /* Display sans-serif headline */
+  font-weight: 400; /* Regular weight (Bebas only has one weight) */
+}
+
+.bebas-roboto .template-text {
+  font-family: 'Roboto', sans-serif; /* Modern sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Work Sans + Source Sans Pro pairing */
+.work-source .template-title {
+  font-family: 'Work Sans', sans-serif; /* Modern sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.work-source .template-text {
+  font-family: 'Source Sans Pro', sans-serif; /* Professional sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Oswald + Roboto pairing */
+.oswald-roboto .template-title {
+  font-family: 'Oswald', sans-serif; /* Condensed sans-serif headline */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.oswald-roboto .template-text {
+  font-family: 'Roboto', sans-serif; /* Modern sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Oxygen + Open Sans pairing */
+.oxygen-open .template-title {
+  font-family: 'Oxygen', sans-serif; /* Clean sans-serif headline */
+  font-weight: 700; /* Bold weight */
+}
+
+.oxygen-open .template-text {
+  font-family: 'Open Sans', sans-serif; /* Clean sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+/* Montserrat + Source Sans Pro pairing */
+.montserrat-source .template-title {
+  font-family: 'Montserrat', sans-serif; /* Sans-serif headline */
+  font-weight: 700; /* Bold weight */
+}
+
+.montserrat-source .template-text {
+  font-family: 'Source Sans Pro', sans-serif; /* Professional sans-serif body */
+  font-weight: 400; /* Regular weight */
+}
+
+
 
 /* Montserrat + Cardo pairing - Modern geometric + classic serif */
 .montserrat-cardo .template-title {
