@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for encoding and responsive scaling -->
+  <meta charset="UTF-8"><!-- Ensure proper character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Mobile friendly scaling -->
+  <title>About - Brian Cordry</title><!-- Browser tab title -->
+
+  <!-- Google Fonts: same families as rest of site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Cross-origin fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet"><!-- Import font families -->
+
+  <!-- Shared site-wide styles first, then page-specific styles -->
+  <link rel="stylesheet" href="css/styles.css"><!-- Global variables, header, base styles -->
+  <link rel="stylesheet" href="css/about.css"><!-- About page specific styles -->
+</head>
+<body>
+  <!-- Subtle snow particle layer (consistent visual language) -->
+  <div class="snow-container" id="snow-container"></div><!-- Fixed, pointer-events none, animated dots -->
+
+  <!-- Sticky, glassy header with nav (consistent across pages) -->
+  <header class="sticky-header"><!-- Fixed top header -->
+    <nav class="nav-container"><!-- Centered content container -->
+      <div class="nav-logo"><a href="index.html" class="logo-link">Brian Cordry</a></div><!-- Brand link -->
+      <ul class="nav-links"><!-- Primary nav links -->
+        <li><a href="index.html" class="nav-link">Home</a></li><!-- Link to home -->
+        <li><a href="services.html" class="nav-link">Services</a></li><!-- Link to services -->
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li><!-- Link to portfolio -->
+        <li><a href="work-journey.html" class="nav-link">Experience</a></li><!-- Link to experience -->
+        <li><a href="about.html" class="nav-link active">About</a></li><!-- Current page: About -->
+        <li><a href="contact.html" class="nav-link">Contact</a></li><!-- Link to contact -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Parallax decorative background (mouse-move reactive gradient aurora) -->
+  <div class="about-parallax" id="about-parallax"><!-- Layer behind content; transforms on mouse move --></div>
+
+  <!-- Main content wrapper (respects sticky header height) -->
+  <main class="main-content"><!-- Adds top padding equal to header height -->
+    <!-- TOP: Hero section with portrait + intro -->
+    <section class="about-hero"><!-- Full-width hero row -->
+      <div class="hero-inner"><!-- Constrained content width -->
+        <!-- Portrait container with glow, tilt, sheen -->
+        <div class="portrait-wrap" id="portrait-wrap" aria-hidden="true"><!-- Decorative: gradient glow + hover tilt -->
+          <div class="portrait-glow"></div><!-- Blurred radial glow -->
+          <div class="portrait-frame"><!-- Soft glass frame -->
+            <img
+              src="assets/images/portraits/brian-red-rocks.jpg"
+              alt="Portrait of Brian Cordry"
+              class="portrait-img"
+              id="portrait-img"
+            /><!-- Actual portrait image -->
+            <div class="portrait-sheen"></div><!-- Hover light sweep sheen -->
+          </div>
+          <div class="floating-orb orb-1"></div><!-- Subtle floating orb 1 -->
+          <div class="floating-orb orb-2"></div><!-- Subtle floating orb 2 -->
+        </div>
+
+        <!-- Intro text block with reveal -->
+        <div class="intro-copy"><!-- Text column -->
+          <h1 class="title reveal-on-scroll">About Brian</h1><!-- Title with scroll reveal -->
+          <p class="intro-lede reveal-on-scroll"><!-- Short positioning statement -->
+            I build elegant, high-performance websites and interfaces with tasteful, modern effects.
+            My focus: clarity, craft, and a little bit of magic to help brands stand out.
+          </p>
+          <ul class="intro-highlights"><!-- Quick credibility bullets -->
+            <li class="reveal-on-scroll">Custom, hand-crafted builds — never cookie-cutter templates</li><!-- Highlight #1 -->
+            <li class="reveal-on-scroll">Obsessed with details: motion, polish, and accessibility</li><!-- Highlight #2 -->
+            <li class="reveal-on-scroll">Flexible across design, development, and content</li><!-- Highlight #3 -->
+          </ul>
+          <div class="intro-cta reveal-on-scroll"><!-- CTA row -->
+            <a href="contact.html" class="cta-ghost">Work with me</a><!-- Secondary CTA -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIDDLE: Values + Philosophy -->
+    <section class="values-section"><!-- Section wrapper with decorative bg -->
+      <div class="section-header"><!-- Centered section header -->
+        <h2 class="section-title reveal-on-scroll">Values & Philosophy</h2><!-- H2 title -->
+        <p class="section-subtitle reveal-on-scroll">How I approach every project</p><!-- Subtitle line -->
+      </div>
+
+      <div class="values-grid"><!-- 3-column responsive grid of value cards -->
+        <!-- Value card 1 -->
+        <article class="value-card tilt-on-hover reveal-on-scroll"><!-- Card with tilt effect -->
+          <div class="value-icon"><!-- Minimal inline SVG icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-7z" fill="currentColor"/></svg>
+          </div>
+          <h3 class="value-title">Detail Obsessed</h3><!-- Card title -->
+          <p class="value-text">Micro-interactions, motion timing, and layout rhythm matter. The small things make it feel premium.</p><!-- Card copy -->
+        </article>
+
+        <!-- Value card 2 -->
+        <article class="value-card tilt-on-hover reveal-on-scroll">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M4 6h16M4 18h10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="value-title">Clarity First</h3>
+          <p class="value-text">Design is communication. I prioritize readable hierarchies and intuitive flows over visual noise.</p>
+        </article>
+
+        <!-- Value card 3 -->
+        <article class="value-card tilt-on-hover reveal-on-scroll">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 4v5l3 3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="value-title">Future-Proof</h3>
+          <p class="value-text">Clean structure, lightweight assets, and scalable patterns so sites grow gracefully with your brand.</p>
+        </article>
+      </div>
+
+      <!-- Philosophy statement block -->
+      <div class="philosophy-block reveal-on-scroll"><!-- Glass card with gradient border -->
+        <p class="philosophy-text">
+          Great websites feel effortless. I combine strong fundamentals with smart effects so the experience is memorable without getting in the way. Beauty serves clarity.
+        </p>
+      </div>
+    </section>
+
+    <!-- BOTTOM: Resume CTA -->
+    <section class="resume-section"><!-- Download area with animated button -->
+      <div class="resume-inner"><!-- Constrained content -->
+        <h2 class="resume-title reveal-on-scroll">Download My Resume</h2><!-- Prompt -->
+        <p class="resume-subtitle reveal-on-scroll">One page. Clean. Everything you need to know.</p><!-- Supporting copy -->
+
+        <!-- Animated resume button with particles -->
+        <a
+          href="assets/docs/Brian-Cordry-Resume.pdf"
+          class="resume-button"
+          id="resume-button"
+          download
+        >
+          <span class="button-text">Download PDF</span><!-- Button label -->
+          <div class="button-sparks"></div><!-- Particle container -->
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Page-specific JavaScript: snow, parallax, reveal, tilt, particles -->
+  <script src="js/about.js"></script><!-- Behavior for this page -->
+</body>
+</html>
